@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+   android:minHeight="?android:attr/listPreferredItemHeight"
+   >
+
+<TextView
+    android:id="@+id/txvshowoperationcontent"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="140dp"
+    android:layout_marginTop="15dp"
+     android:textColor="#333333"
+   android:gravity="center"
+    android:textSize="9pt" />
+
+ <TextView
+     android:id="@+id/txvshowoperationmethod"
+     android:layout_width="wrap_content"
+     android:layout_height="wrap_content"
+     android:layout_marginLeft="34dp"
+      android:textColor="#333333"
+       android:layout_marginTop="16dp"
+     android:gravity="center"
+     android:textSize="9pt" />
+
+  <Button
+      android:id="@+id/btn_scorereduce"
+      android:layout_width="42dp"
+      android:layout_height="32dp"
+      android:layout_marginLeft="924dp"
+      android:layout_marginTop="15dp"
+      android:background="@drawable/scorereduce" />
+
+  <Button
+      android:id="@+id/btn_scoreadd"
+      android:layout_width="42dp"
+      android:layout_height="32dp"
+      android:layout_marginLeft="874dp"
+       android:layout_marginTop="15dp"
+      android:background="@drawable/scoreadd" />
+  <Button
+      android:id="@+id/btn_scorecuo"
+      android:layout_width="33dp"
+      android:layout_height="32dp"
+      android:layout_marginLeft="1039dp"
+      android:layout_marginTop="15dp"
+      />
+  <EditText 
+      android:id="@+id/editcontent"
+      android:layout_width="150dp"
+      android:layout_height="wrap_content"
+      android:layout_marginLeft="1090dp"
+      android:layout_marginTop="15dp"
+      android:hint="评论内容"
+      android:background="@drawable/et_border"
+      android:singleLine="true"
+      />
+
+  <Button
+      android:id="@+id/btn_scoredui"
+      android:layout_width="33dp"
+      android:layout_height="32dp"
+      android:layout_marginLeft="989dp"
+       android:layout_marginTop="15dp"
+      />
+  <TextView
+      android:id="@+id/txvshowallotedscore"
+      android:layout_width="120dp"
+      android:layout_height="wrap_content"
+      android:layout_marginLeft="589dp"
+       android:textColor="#333333"
+        android:layout_marginTop="16dp"
+      android:gravity="center"
+      android:textSize="9pt" />
+
+            	<TextView
+            	    android:id="@+id/tv_scorevalue"
+            	    android:layout_width="110dp"
+            	    android:layout_height="33dp"
+            	 android:layout_marginLeft="750dp"
+            	 android:layout_marginTop="14dp"
+            	    android:background="@drawable/tv_border"
+            	    android:minHeight="40dp"
+            	    android:gravity="center"
+            android:paddingRight="40dp"
+            	    android:textColor="#333333"
+            	    android:textSize="9pt" />
+
+            	<ImageButton
+            	    android:id="@+id/bt_scoredropdown"
+            	    android:layout_width="38px"
+            	    android:layout_height="27px"
+            	    android:layout_marginLeft="820dp"
+            	    android:layout_marginTop="17dp"
+            	    android:background="@drawable/down_arrow" />
+
+   </RelativeLayout>

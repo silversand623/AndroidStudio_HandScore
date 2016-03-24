@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical|center_horizontal"
+    android:background="@drawable/dialogbg">
+    <RelativeLayout 
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="30dip"
+        android:paddingTop="10dip">
+        <ImageView 
+            android:id="@+id/dialog_title_image"
+            android:layout_alignParentLeft="true"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:background="@drawable/company_icon"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="25dp"
+            android:layout_toRightOf="@+id/dialog_title_image"
+            android:text="Message"
+            android:textColor="#000000"
+            android:textSize="30sp" />
+        
+    </RelativeLayout>
+    <TextView 
+            android:layout_width="fill_parent"
+            android:layout_height="1dip"
+            android:background="#C0CFEB"
+            android:layout_marginTop="5dip"/>
+
+    <TextView
+        android:id="@+id/tablet_text"
+        android:layout_width="260dp"
+        android:layout_height="wrap_content"        
+        android:layout_marginTop="10dip"
+        android:singleLine="false"
+        android:text="This is a custom dialog"
+        android:textColor="#000000"
+        android:textSize="24sp" 
+        android:gravity="center"
+        />
+
+    <RelativeLayout 
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="10dip"
+        android:paddingBottom="10dip">
+
+        <Button
+            android:id="@+id/tablet_cancel"
+            android:layout_width="100dip"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/tablet_ok"
+            android:layout_alignBottom="@+id/tablet_ok"
+            android:layout_toRightOf="@+id/tablet_ok"
+            android:text="取消" />
+
+        <Button
+            android:id="@+id/tablet_ok"
+            android:layout_width="100dip"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="确定" />
+
+    </RelativeLayout>
+</LinearLayout>

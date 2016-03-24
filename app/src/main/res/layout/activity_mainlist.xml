@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<cn.king.swipelibrary.SwipeLayout
+    xmlns:swipe="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/swipe"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    
+    <LinearLayout
+        android:id="@+id/LinearBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"       
+        android:gravity="center"
+        android:tag="Bottom3"
+        android:weightSum="10">
+        <TextView
+            android:id="@+id/TvZhaoPian"
+            android:layout_width="100dp"
+            android:layout_height="60dp"
+            android:textSize="23dip"
+            android:background="@color/green"
+            android:gravity="center"
+            android:text="照片"
+            android:textColor="#ffffff" /> 
+            <TextView
+            android:id="@+id/TvPingFen"
+            android:layout_width="100dp"
+            android:layout_height="60dp"
+            android:textSize="23dip"
+            android:background="@color/blue"
+            android:gravity="center"
+            android:text="评分"
+            android:textColor="#ffffff" /> 
+ 			<TextView
+            android:id="@+id/TvQueKao"
+            android:layout_width="100dp"
+            android:layout_height="60dp"
+            android:textSize="23dip"
+            android:background="@color/red"
+            android:gravity="center"
+            android:text="缺考"
+            android:textColor="#ffffff" />          
+    </LinearLayout>
+    
+	<LinearLayout 
+    android:layout_width="1210dip"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:gravity="center"          
+>
+ <ImageView  android:id="@+id/itemImage"
+ 	android:layout_width="100dip"
+ 	android:layout_height="60dip" 	
+ 	android:layout_centerHorizontal="true" 
+ 	android:layout_marginLeft="60dip"		
+	></ImageView>
+<!-- <TextView
+android:id="@+id/itemName"
+android:layout_width="230dip"
+android:layout_height="wrap_content"
+android:gravity="left" 
+android:textColor="@color/ListFontColor"
+android:textSize="23dip"
+android:paddingLeft="100dip"   
+ > 
+</TextView>-->
+<TextView
+android:id="@+id/itemTime"
+ android:layout_width="230dip"
+android:layout_height="wrap_content"
+android:gravity="center" 
+android:textColor="@color/ListFontColor"
+android:textSize="23dip"
+>
+ </TextView>
+ <TextView
+android:id="@+id/itemKaohao"
+android:layout_width="160dip"
+android:layout_height="wrap_content"
+android:gravity="center" 
+android:textColor="@color/ListFontColor"
+android:textSize="23dip"
+>
+ 　　    </TextView>
+<TextView
+android:id="@+id/itemXuehao"
+android:layout_width="160dip"
+android:layout_height="wrap_content"
+android:gravity="center" 
+android:textColor="@color/ListFontColor"
+android:textSize="23dip"
+>
+ 　　    </TextView>
+<TextView
+android:id="@+id/itemBanJi"
+android:layout_width="250dip"
+android:layout_height="wrap_content"
+android:gravity="center" 
+android:textColor="@color/ListFontColor"
+android:textSize="23dip"
+>
+ 　　    </TextView>
+<TextView
+android:id="@+id/itemZhuangtai"
+android:layout_width="150dip"
+android:layout_height="wrap_content"
+android:gravity="center" 
+android:textColor="@color/ListFontColor"
+android:textSize="23dip"
+>
+ 　　    </TextView>
+<TextView
+android:id="@+id/itemFenshu"
+android:layout_width="180dip"
+android:layout_height="wrap_content"
+android:gravity="center" 
+android:textColor="@color/ListFontColor"
+android:textSize="23dip"
+>
+</TextView>
+<TextView
+android:layout_width="80dip"
+android:layout_height="wrap_content"
+android:gravity="left" 
+android:textColor="#ddd"
+android:textSize="30dip"
+android:text=">"
+>
+</TextView>  
+</LinearLayout>
+</cn.king.swipelibrary.SwipeLayout>

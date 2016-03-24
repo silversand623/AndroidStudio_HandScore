@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="1210dip"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:gravity="center"
+>
+<TextView
+android:id="@+id/itemNeiRong"
+android:layout_width="630dip"
+android:layout_height="wrap_content"
+android:gravity="left" 
+android:textColor="@color/ListFontColor"
+android:textSize="23dip"
+android:singleLine="false"
+android:paddingLeft="18dip"
+android:paddingTop="5dip"
+android:paddingBottom="5dip"
+ >
+</TextView>
+<TextView
+android:id="@+id/itemFenZhi"
+ android:layout_width="150dip"
+android:layout_height="wrap_content"
+android:gravity="center" 
+android:textColor="@color/ListFontColor"
+android:textSize="23dip"
+>
+ </TextView>
+ <com.example.webview.SegmentSeekBarView
+ 	 android:id="@+id/SegSeekBar"
+ 	android:layout_width="450dip"
+	android:layout_height="wrap_content"
+	android:paddingRight="5dip"
+	>
+ </com.example.webview.SegmentSeekBarView>
+ 
+</LinearLayout>

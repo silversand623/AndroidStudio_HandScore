@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>  
+  
+<TextView  
+  
+    xmlns:android="http://schemas.android.com/apk/res/android"  
+  
+    android:id="@+id/weather_cityname_textview"  
+  
+    android:layout_width="200dp"  
+  
+    android:layout_height="50dp"  
+  
+    android:textColor="#FF0000"  
+  
+  
+    android:textSize="20sp"
+  
+    android:textStyle="bold"  
+  
+    style="?android:attr/spinnerDropDownItemStyle">  
+  
+</TextView>  

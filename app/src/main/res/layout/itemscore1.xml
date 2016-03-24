@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<com.example.webview.tools.TableResizeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:id="@+id/table1"
+     >
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TableRow android:tag="tablerow0" >
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:tag="tablelayout0" >
+            </TableLayout>
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:tag="tablelayout1" >
+            </TableLayout>
+
+            <TableLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="tablelayout2" >
+            </TableLayout>
+            <TableLayout
+               android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                  android:layout_marginTop="2dp"
+                android:tag="tablelayout3" >
+              
+            </TableLayout>
+            <TableLayout
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+     android:gravity="right"
+                android:tag="tablelayout4" >
+                         
+            </TableLayout>
+            <TableLayout
+                android:layout_width="70dp"
+                android:layout_height="wrap_content"
+           android:gravity="left"
+                android:tag="tablelayout5" >
+                                     
+              
+            </TableLayout>
+               <TableLayout
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+      android:gravity="left"
+                android:tag="tablelayout6" >
+          
+              </TableLayout>
+             <TableLayout
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+         android:gravity="left"
+                android:tag="tablelayout7" >
+
+            </TableLayout>
+             <TableLayout
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+          android:gravity="left"
+                android:tag="tablelayout8" >
+                                                                
+            </TableLayout>
+        </TableRow>
+    </TableLayout>
+</com.example.webview.tools.TableResizeLayout>

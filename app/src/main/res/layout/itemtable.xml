@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:id="@+id/relativetable"
+    android:padding="5dp"
+   >
+<TextView
+    android:id="@+id/txvshowScoretablename"
+    android:layout_width="200dp"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="160dp"
+     android:textColor="#333333"
+    android:textSize="10pt" />
+<!-- 
+ <TextView
+     android:id="@+id/txvshowScoretablemethod1"
+     android:layout_width="120dp"
+     android:layout_height="wrap_content"
+     android:layout_marginLeft="20dp"
+     android:layout_marginTop="50dp"
+      android:textColor="#000000"
+     android:textSize="26sp" />
+
+  <TextView
+      android:id="@+id/txvshowScoretablemethod2"
+      android:layout_width="120dp"
+      android:layout_height="wrap_content"
+      android:layout_marginLeft="180dp"
+     android:layout_marginTop="50dp"
+      android:textColor="#000000"
+      android:textSize="26sp" />
+ <TextView
+      android:id="@+id/txvshowScoretablemethod3"
+      android:layout_width="120dp"
+      android:layout_height="wrap_content"
+      android:layout_marginLeft="340dp"
+     android:layout_marginTop="50dp"
+      android:textColor="#000000"
+      android:textSize="26sp" />
+  <TextView
+      android:id="@+id/txvshowScoretablemethod4"
+      android:layout_width="120dp"
+      android:layout_height="wrap_content"
+      android:layout_marginLeft="500dp"
+     android:layout_marginTop="50dp"
+      android:textColor="#000000"
+      android:textSize="26sp" />
+   <TextView
+     android:id="@+id/txvshowScoretablemethod5"
+     android:layout_width="120dp"
+     android:layout_height="wrap_content"
+     android:layout_marginLeft="20dp"
+     android:layout_marginTop="100dp"
+      android:textColor="#000000"
+     android:textSize="26sp" />
+
+  <TextView
+      android:id="@+id/txvshowScoretablemethod6"
+      android:layout_width="120dp"
+      android:layout_height="wrap_content"
+      android:layout_marginLeft="180dp"
+     android:layout_marginTop="100dp"
+      android:textColor="#000000"
+      android:textSize="26sp" />
+ <TextView
+      android:id="@+id/txvshowScoretablemethod7"
+      android:layout_width="120dp"
+      android:layout_height="wrap_content"
+      android:layout_marginLeft="340dp"
+     android:layout_marginTop="100dp"
+      android:textColor="#000000"
+      android:textSize="26sp" />
+  <TextView
+      android:id="@+id/txvshowScoretablemethod8"
+      android:layout_width="120dp"
+      android:layout_height="wrap_content"
+      android:layout_marginLeft="500dp"
+     android:layout_marginTop="100dp"
+      android:textColor="#000000"
+      android:textSize="26sp" />
+      -->
+   </RelativeLayout>

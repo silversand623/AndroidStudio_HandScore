@@ -1,0 +1,381 @@
+<?xml version="1.0" encoding="utf-8"?>   
+   <ScrollView   xmlns:android="http://schemas.android.com/apk/res/android"  
+ android:layout_width="fill_parent"  
+ android:layout_height="fill_parent"  
+ android:background="@drawable/et_border2"
+ android:fadingEdge="vertical">  
+ 
+<TableLayout  
+  android:id="@+id/tableadd"
+    android:layout_width="fill_parent"   
+  
+    android:layout_height="fill_parent"
+    android:background="@drawable/et_border2">   
+    <TextView 
+      android:id="@+id/textshowtablename"
+         android:textColor="#333333"
+           android:background="@drawable/et_border"
+           android:textSize="26sp"
+           android:textStyle="bold"
+        android:gravity="center"/>
+ 
+
+     <TableLayout
+        
+          android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+       
+      >
+      <TableRow
+     android:tag="tablerow0"
+     >   
+  <TableLayout
+         android:tag="tablelayout0"
+          android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+       
+      >
+  
+   
+       </TableLayout>
+         <TableLayout
+         android:tag="tablelayout1"
+          android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        
+         >
+     
+           
+    
+   </TableLayout>
+      <TableLayout
+         android:tag="tablelayout2"
+          android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+       
+        
+        >
+  
+  
+             </TableLayout>
+</TableRow>
+  </TableLayout>
+
+    <TableLayout
+         
+          android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+       
+      >
+ <TableRow
+     android:tag="tablerow1"
+     >   
+    <TableLayout
+          android:tag="tablelayout3"
+          android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+       
+      >
+      </TableLayout>
+   
+       
+         <TableLayout
+          android:tag="tablelayout4"
+          android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        
+         >
+     
+      
+ 
+   </TableLayout>
+      <TableLayout
+         android:tag="tablelayout5"
+          android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        
+        >
+            
+  
+             </TableLayout>
+ </TableRow>
+  </TableLayout>
+      <TableLayout
+   
+          android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+       
+      >
+ <TableRow
+     android:tag="tablerow2"
+     >   
+    <TableLayout
+         android:tag="tablelayout6"
+          android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+       
+      >
+   </TableLayout>
+       
+         <TableLayout
+          android:tag="tablelayout7"
+          android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        
+         >
+     
+      
+ 
+   </TableLayout>
+      <TableLayout
+         android:tag="tablelayout8"
+          android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+       
+        
+        >
+            
+  
+             </TableLayout>
+ </TableRow>
+  </TableLayout>
+      <TableLayout
+         
+          android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+       
+      >
+ <TableRow
+     android:tag="tablerow3"
+     >   
+   <TableLayout
+          android:tag="tablelayout9"
+          android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+       
+      >
+      </TableLayout>
+   
+       
+         <TableLayout
+          android:tag="tablelayout10"
+          android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        
+         >
+     
+      
+ 
+   </TableLayout>
+      <TableLayout
+          android:tag="tablelayout11"
+          android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+       
+        
+        >
+            
+  
+             </TableLayout>
+ </TableRow>
+  </TableLayout>
+      <TableLayout
+        
+          android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+       
+      >
+ <TableRow
+     android:tag="tablerow4"
+     >   
+   <TableLayout
+          android:tag="tablelayout12"
+          android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+       
+      >
+   </TableLayout>
+       
+         <TableLayout
+          android:tag="tablelayout13"
+          android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+      
+         >
+     
+      
+ 
+   </TableLayout>
+      <TableLayout
+          android:tag="tablelayout14"
+          android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+       
+        
+        >
+            
+  
+             </TableLayout>
+ </TableRow>
+  </TableLayout>
+      <TableLayout
+       
+          android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+       
+      >
+ <TableRow
+     android:tag="tablerow5"
+     >   
+  
+    <TableLayout
+          android:tag="tablelayout15"
+          android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+       
+      >
+      </TableLayout>
+       
+         <TableLayout
+          android:tag="tablelayout16"
+          android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        
+         >
+     
+      
+ 
+   </TableLayout>
+      <TableLayout
+          android:tag="tablelayout17"
+          android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+      
+        
+        >
+            
+  
+             </TableLayout>
+ </TableRow>
+  </TableLayout>
+      <TableLayout
+        
+          android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+       
+      >
+ <TableRow
+     android:tag="tablerow6"
+     >   
+  <TableLayout
+         android:tag="tablelayout18"
+          android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+       
+      >
+   </TableLayout>
+       
+         <TableLayout
+          android:tag="tablelayout19"
+          android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+       
+         >
+     
+      
+ 
+   </TableLayout>
+      <TableLayout
+         android:tag="tablelayout20"
+          android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+     
+        
+        >
+            
+  
+             </TableLayout>
+ </TableRow>
+  </TableLayout>
+      <TableLayout
+         
+          android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+       
+      >
+ <TableRow
+     android:tag="tablerow7"
+     >   
+   <TableLayout
+          android:tag="tablelayout21"
+          android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+       
+      >
+      </TableLayout>
+   
+       
+         <TableLayout
+         android:tag="tablelayout22"
+          android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+         
+         >
+     
+      
+ 
+   </TableLayout>
+      <TableLayout
+          android:tag="tablelayout23"
+          android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        
+        
+        >
+            
+  
+             </TableLayout>
+ </TableRow>
+  </TableLayout>
+      <TableLayout
+         
+          android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+       
+      >
+ <TableRow
+     android:tag="tablerow8"
+     >   
+   <TableLayout
+          android:tag="tablelayout24"
+          android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+       
+      >
+      </TableLayout>
+   
+       
+         <TableLayout
+         android:tag="tablelayout25"
+          android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+       
+         >
+     
+      
+ 
+   </TableLayout>
+      <TableLayout
+          android:tag="tablelayout26"
+          android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+       
+        
+        >
+            
+  
+             </TableLayout>
+ </TableRow>
+  </TableLayout>
+</TableLayout>
+ </ScrollView>

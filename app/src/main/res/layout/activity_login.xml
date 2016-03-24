@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<com.example.webview.tools.ResizeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/relative1"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/bgimg" >
+        <ImageView
+            android:id="@+id/usernameimg"
+            android:layout_width="46dp"
+            android:layout_height="46dp"
+            android:layout_marginLeft="812dp"
+            android:layout_marginTop="280dp"
+            android:background="@drawable/password" />
+
+<Button
+    android:id="@+id/btn_selectexam"
+  android:layout_width="119dp"
+    android:layout_height="109dp"
+    android:layout_marginLeft="975dp"
+    android:layout_marginTop="366dp"
+    android:background="@drawable/loginbuttonselector"
+   android:text="开 始\n评 分"
+    android:gravity="center"
+    android:visibility="gone"
+    android:textColor="@color/white"
+   android:textSize="13pt"/>
+<!--  
+<Spinner
+    android:id="@+id/Spinnerexam_name"
+    android:layout_width="240dp"
+    android:layout_height="40dp"
+     android:layout_marginTop="260dp"
+    android:layout_marginLeft="550dp"
+    />
+    -->
+     <TextView
+                android:id="@+id/tv_valuename"
+                android:layout_width="150dp"
+    android:layout_height="33dp"
+     android:layout_marginTop="405dp"
+    android:layout_marginLeft="570dp"
+                android:minHeight="40dp"
+                android:textSize="10pt"
+                android:textColor="#333333"
+              android:text="当前考试为:"
+                 android:visibility="invisible">
+	            </TextView>
+  <TextView
+                android:id="@+id/tv_value"
+                android:layout_width="200dp"
+    android:layout_height="33dp"
+     android:layout_marginTop="403dp"
+    android:layout_marginLeft="690dp"
+                android:minHeight="40dp"
+	          
+	         	android:background="@drawable/tv_border"
+                android:textSize="10pt"
+                android:textColor="#333333"
+                android:gravity="left|center"
+                android:paddingLeft="5dp"
+                 android:visibility="invisible">
+	            </TextView>
+	            
+	      <!--       
+            	<ImageButton
+                android:id="@+id/bt_dropdown"
+                android:layout_width="38px"
+                android:layout_height="29px"
+     android:layout_marginTop="407dp"
+    android:layout_marginLeft="860dp"
+                android:background="@drawable/down_arrow" 
+                 android:visibility="invisible"/>
+--> 
+
+<EditText
+    android:id="@+id/edt_password"
+    android:layout_width="280dp"
+    android:layout_height="45dp"
+    android:layout_marginLeft="857dp"
+    android:layout_marginTop="345dp"
+    android:background="@drawable/et_border"
+    android:ems="10"
+    android:hint="密码"
+    android:paddingLeft="5dp"
+    android:singleLine="true"
+    android:textColor="#333333"
+    android:textSize="10pt" />
+
+<ImageView
+    android:id="@+id/passwordimg"
+    android:layout_width="46dp"
+    android:layout_height="46dp"
+    android:layout_marginLeft="812dp"
+    android:layout_marginTop="345dp"
+    android:background="@drawable/username" />
+
+<EditText
+    android:id="@+id/edt_username"
+    android:layout_width="280dp"
+    android:layout_height="45dp"
+    android:layout_marginLeft="857dp"
+    android:layout_marginTop="280dp"
+    android:background="@drawable/et_border"
+    android:ems="10"
+    android:hint="用户名"
+    android:paddingLeft="5dp"
+    android:singleLine="true"
+    android:textColor="#333333"
+    android:textSize="10pt" />
+
+<Button
+    android:id="@+id/btn_login"
+    android:layout_width="match_parent"
+    android:layout_height="57dp"
+    android:layout_alignLeft="@+id/passwordimg"
+    android:layout_alignRight="@+id/edt_password"
+    android:layout_below="@+id/tv_valuename"
+    android:layout_marginTop="23dp"
+    android:background="@drawable/loginbuttonselector"
+    android:gravity="center"
+    android:text="登 录"
+    android:textColor="@color/white"
+    android:textSize="12pt" />
+
+<TextView
+    android:id="@+id/tv_setIP"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_above="@+id/btn_login"
+    android:layout_alignLeft="@+id/btn_login"
+    android:text="IP设置"
+    android:textColor="#027BAD"
+    android:textSize="20sp"
+    android:textStyle="bold" />
+</com.example.webview.tools.ResizeLayout>

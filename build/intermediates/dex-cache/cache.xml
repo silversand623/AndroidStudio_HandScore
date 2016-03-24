@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="/Users/GitCode/AndroidStudio_HandScore/app/libs/ion.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="c3bcd256595a8ae9c8cf0b51f6313c9562ec56bc">
+        <dex dex="/Users/GitCode/AndroidStudio_HandScore/app/build/intermediates/pre-dexed/debug/ion_d7bdd510f7a503d7827a003748d6f71b6ed9d159.jar" />
+    </item>
+    <item
+        jar="/Users/GitCode/AndroidStudio_HandScore/app/libs/nineoldandroids-2.4.0.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="a43cf9e271b5bc564e880a0a4be63ab9c69c97f8">
+        <dex dex="/Users/GitCode/AndroidStudio_HandScore/app/build/intermediates/pre-dexed/debug/nineoldandroids-2.4.0_cac711b450304e249f7cd9b66ace8fb6a40e822c.jar" />
+    </item>
+    <item
+        jar="/Users/GitCode/AndroidStudio_HandScore/app/libs/androidasync.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="7ee66b3b57502dcab32e8be1f87b5b147d00c7b0">
+        <dex dex="/Users/GitCode/AndroidStudio_HandScore/app/build/intermediates/pre-dexed/debug/androidasync_1bfd5582378160ac49ab0a453b110ddc4d9f7cd5.jar" />
+    </item>
+    <item
+        jar="/Users/GitCode/AndroidStudio_HandScore/app/libs/volley.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="67dca93186288eb3a71cc3dbaa8db76c8b5d249a">
+        <dex dex="/Users/GitCode/AndroidStudio_HandScore/app/build/intermediates/pre-dexed/debug/volley_0fe0d6f93a1c67d25ba0e1be91d7779faf84127f.jar" />
+    </item>
+    <item
+        jar="/Users/GitCode/AndroidStudio_HandScore/app/libs/swipelibrary.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="c986d522798938cf174f483129fa6dff489442c0">
+        <dex dex="/Users/GitCode/AndroidStudio_HandScore/app/build/intermediates/pre-dexed/debug/swipelibrary_41c8504f55d9a5809072397c90aeeb5b937d784b.jar" />
+    </item>
+    <item
+        jar="/Users/GitCode/AndroidStudio_HandScore/app/libs/zxing.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="96b67e377ff4637ff1fa3bbe9ad7183773935f39">
+        <dex dex="/Users/GitCode/AndroidStudio_HandScore/app/build/intermediates/pre-dexed/debug/zxing_26d177a58c3c3a75156fb9aa68a4bf0e682eb004.jar" />
+    </item>
+    <item
+        jar="/Users/important/adt-bundle-mac-x86_64-20131030/sdk/extras/android/m2repository/com/android/support/support-v4/19.1.0/support-v4-19.1.0.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="85f201b380937e61a9dce6ca90ccf6872abbfb67">
+        <dex dex="/Users/GitCode/AndroidStudio_HandScore/app/build/intermediates/pre-dexed/debug/support-v4-19.1.0_4f9d748b73d4db52e54cab7ecfc194af682aa6c3.jar" />
+    </item>
+    <item
+        jar="/Users/lyn/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.2.4/a60a5e993c98c864010053cb901b7eab25306568/gson-2.2.4.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="a60a5e993c98c864010053cb901b7eab25306568">
+        <dex dex="/Users/GitCode/AndroidStudio_HandScore/app/build/intermediates/pre-dexed/debug/gson-2.2.4_b763b6879353ba8e57d6dd640c35bd8e9f4794e8.jar" />
+    </item>
+    <item
+        jar="/Users/GitCode/AndroidStudio_HandScore/app/libs/AndroidSwipeLayout-v1.1.8.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="c092dd2f2bdea6c04c5bf4122db66cb3495a3c35">
+        <dex dex="/Users/GitCode/AndroidStudio_HandScore/app/build/intermediates/pre-dexed/debug/AndroidSwipeLayout-v1.1.8_e77dab3985dc1e284661ea2c2c14e41548c6a2b9.jar" />
+    </item>
+
+</items>

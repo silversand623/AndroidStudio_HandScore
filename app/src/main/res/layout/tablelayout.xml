@@ -1,0 +1,717 @@
+<?xml version="1.0" encoding="utf-8"?>   
+   <ScrollView   xmlns:android="http://schemas.android.com/apk/res/android"  
+ android:layout_width="fill_parent"  
+ android:layout_height="fill_parent"  
+ android:background="@drawable/et_border2"
+ android:fadingEdge="vertical">  
+ 
+<TableLayout  
+  android:id="@+id/tableadd"
+    android:layout_width="fill_parent"   
+  
+    android:layout_height="fill_parent"
+    android:background="@drawable/et_border2">   
+    <TextView 
+        android:text="问诊查体评分表"
+         android:textColor="#333333"
+           android:background="@drawable/et_border"
+           android:textSize="26sp"
+           android:textStyle="bold"
+        android:gravity="center"/>
+ 
+   <TableLayout
+          android:id="@+id/tablelayout02"
+          android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+     
+          android:stretchColumns="0" >
+    <TableRow>   
+  
+        <TextView   
+             android:background="@drawable/et_border"
+    android:textColor="#333333"
+     android:textSize="20sp"
+      android:textStyle="bold"
+          android:text="问诊内容"   
+  android:gravity="center"
+        /> 
+  
+      
+    </TableRow>   
+      </TableLayout>
+       <TableLayout
+          android:id="@+id/tablelayout03"
+          android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+ <TableRow>   
+  
+        <TextView   
+ android:layout_width="540dp"
+ android:paddingLeft="5dp"
+          android:text="一般项目"   
+          android:textSize="18sp"
+           android:background="@drawable/et_border"
+            android:textColor="#333333"
+        /> 
+     <TextView   
+  android:layout_width="95dp"
+          android:text="5"
+           android:textSize="18sp"
+         android:gravity="center" 
+           android:background="@drawable/et_border"
+            android:textColor="#333333"
+        /> 
+      
+    </TableRow>   
+  </TableLayout>
+         <TableLayout
+          android:id="@+id/tablelayout04"
+          android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+       >
+ <TableRow>   
+  
+        <TextView   
+  android:layout_width="540dp"
+    android:background="@drawable/et_border"
+     android:textColor="#333333"
+     android:paddingLeft="5dp"
+      android:textSize="18sp"
+          android:text="主诉"   
+        /> 
+     <TextView   
+       
+ android:layout_width="95dp"
+          android:text="5"
+           android:textSize="18sp"
+           android:background="@drawable/et_border"
+         android:gravity="center" 
+            android:textColor="#333333"
+        /> 
+      
+    </TableRow>   
+  </TableLayout>
+     <TableLayout
+          android:id="@+id/tablelayout05"
+          android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+       
+      >
+ <TableRow
+     >   
+  
+        <TextView   
+  android:layout_width="250dp"
+  android:layout_height="225dp"
+          android:text="现病史"   
+           android:textSize="18sp"
+          android:paddingLeft="5dp"
+          android:gravity="center"
+           android:background="@drawable/et_border"
+            android:textColor="#333333"
+        /> 
+       
+         <TableLayout
+          android:id="@+id/tablelayout06"
+          android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+         android:layout_weight="3.5"
+         >
+     <TableRow  android:background="@drawable/et_border">  
+            <TextView   
+                android:layout_width="290dp"
+    android:textColor="#333333"
+    android:paddingLeft="5dp"
+          android:text="围绕主诉内容展开询问"   
+           android:textSize="18sp"
+        /> 
+      
+     
+  
+      </TableRow>
+        <TableRow  android:background="@drawable/et_border">  
+               <TextView  
+                     android:layout_width="290dp" 
+    android:textColor="#333333"
+    android:paddingLeft="5dp"
+          android:text="发病诱因及伴随症状"   
+           android:textSize="18sp"
+        /> 
+          
+            </TableRow>
+  <TableRow  android:background="@drawable/et_border">  
+               <TextView   
+                     android:layout_width="290dp"
+    android:textColor="#333333"
+    android:paddingLeft="5dp"
+          android:text="饮食情况"   
+           android:textSize="18sp"
+        /> 
+          
+            </TableRow>
+             <TableRow  android:background="@drawable/et_border">  
+               <TextView   
+                     android:layout_width="290dp"
+    android:textColor="#333333"
+    android:paddingLeft="5dp"
+          android:text="睡眠情况"   
+           android:textSize="18sp"
+        /> 
+          
+            </TableRow>
+             <TableRow  android:background="@drawable/et_border">  
+               <TextView   
+                     android:layout_width="290dp"
+    android:textColor="#333333"
+    android:paddingLeft="5dp"
+          android:text="二便情况"   
+           android:textSize="18sp"
+        /> 
+          
+            </TableRow>
+             <TableRow  android:background="@drawable/et_border">  
+               <TextView   
+                     android:layout_width="290dp"
+    android:textColor="#333333"
+    android:paddingLeft="5dp"
+          android:text="体重变化"  
+           android:textSize="18sp" 
+        /> 
+          
+            </TableRow>
+             <TableRow  android:background="@drawable/et_border">  
+               <TextView   
+                     android:layout_width="290dp"
+    android:textColor="#333333"
+    android:paddingLeft="5dp"
+          android:text="诊疗情况"   
+           android:textSize="18sp"
+        /> 
+          
+            </TableRow>
+             <TableRow  android:background="@drawable/et_border">  
+               <TextView   
+                     android:layout_width="290dp"
+    android:textColor="#333333"
+    android:paddingLeft="5dp"
+          android:text="检查情况"   
+           android:textSize="18sp"
+        /> 
+          
+            </TableRow>
+             <TableRow  android:background="@drawable/et_border">  
+               <TextView   
+                     android:layout_width="290dp"
+    android:textColor="#333333"
+    android:paddingLeft="5dp"
+          android:text="治疗效果"   
+           android:textSize="18sp"
+        /> 
+          
+            </TableRow>
+   </TableLayout>
+      <TableLayout
+          android:id="@+id/tablelayout07"
+          android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="right"
+        
+        >
+               <TableRow
+                    android:background="@drawable/et_border"
+                   >  
+                
+               
+               <TextView   
+                   android:layout_width="95dp"
+          android:text="5"   
+       android:gravity="center" 
+        android:textSize="18sp"
+            android:textColor="#333333"
+      
+        /> 
+            </TableRow>
+                    <TableRow
+                         android:background="@drawable/et_border">  
+               <TextView   
+          android:text="5" 
+           android:gravity="center" 
+            android:textSize="18sp"
+            android:layout_width="95dp"
+            android:textColor="#333333"  
+          
+        /> 
+          
+            </TableRow>
+                    <TableRow  android:background="@drawable/et_border">  
+               <TextView   
+          android:text="5"   
+           android:gravity="center" 
+            android:layout_width="95dp"
+             android:textSize="18sp"
+            android:textColor="#333333"
+           
+        /> 
+          
+            </TableRow>
+                    <TableRow  android:background="@drawable/et_border">  
+               <TextView   
+          android:text="5"   
+           android:gravity="center" 
+            android:textSize="18sp"
+            android:layout_width="95dp"
+            android:textColor="#333333"
+           
+        /> 
+          
+            </TableRow>
+                    <TableRow  android:background="@drawable/et_border">  
+               <TextView   
+          android:text="5"   
+           android:gravity="center" 
+            android:layout_width="95dp"
+             android:textSize="18sp"
+            android:textColor="#333333"
+        /> 
+          
+            </TableRow>
+                    <TableRow  android:background="@drawable/et_border">  
+               <TextView   
+          android:text="5"   
+           android:gravity="center" 
+            android:layout_width="95dp"
+             android:textSize="18sp"
+            android:textColor="#333333"
+        /> 
+          
+            </TableRow>
+                    <TableRow  android:background="@drawable/et_border">  
+               <TextView   
+          android:text="5"   
+           android:gravity="center" 
+            android:textSize="18sp"
+            android:layout_width="95dp"
+            android:textColor="#333333"
+        /> 
+          
+            </TableRow>
+                    <TableRow  android:background="@drawable/et_border">  
+               <TextView   
+          android:text="5"   
+           android:gravity="center" 
+            android:textSize="18sp"
+            android:layout_width="95dp"
+            android:textColor="#333333"
+        /> 
+          
+            </TableRow>
+                    <TableRow  android:background="@drawable/et_border">  
+               <TextView   
+          android:text="5"   
+           android:gravity="center" 
+            android:textSize="18sp"
+            android:layout_width="95dp"
+            android:textColor="#333333"
+        /> 
+          
+            </TableRow>
+  
+             </TableLayout>
+ </TableRow>
+  </TableLayout>
+       <TableLayout
+          android:id="@+id/tablelayout08"
+          android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+    
+      >
+     <TableRow>   
+  
+        <TextView   
+     android:layout_width="250dp"
+     android:layout_height="100dp"
+     android:paddingLeft="5dp"
+          android:text="既往史"  
+           android:textSize="18sp"
+          android:gravity="center" 
+           android:background="@drawable/et_border"
+            android:textColor="#333333"
+        /> 
+       
+         <TableLayout
+          android:id="@+id/tablelayout09"
+          android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+      android:layout_weight="3.6"
+         >
+       <TableRow  android:background="@drawable/et_border">  
+            <TextView   
+    android:textColor="#333333"
+    android:layout_width="290dp"
+    android:paddingLeft="5dp"
+     android:textSize="18sp"
+          android:text="曾患史"   
+        /> 
+      
+     
+  
+      </TableRow>
+        <TableRow  android:background="@drawable/et_border">  
+               <TextView   
+    android:textColor="#333333"
+    android:layout_width="290dp"
+    android:paddingLeft="5dp"
+     android:textSize="18sp"
+          android:text="传染病史"   
+        /> 
+          
+            </TableRow>
+  <TableRow  android:background="@drawable/et_border">  
+               <TextView   
+    android:textColor="#333333"
+    android:layout_width="290dp"
+     android:textSize="18sp"
+    android:paddingLeft="5dp"
+          android:text="手术史"   
+        /> 
+          
+            </TableRow>
+             <TableRow  android:background="@drawable/et_border">  
+               <TextView   
+                    android:layout_width="290dp"
+    android:textColor="#333333"
+     android:textSize="18sp"
+    android:paddingLeft="5dp"
+          android:text="过敏史、预防接种史"   
+        /> 
+          
+            </TableRow>
+</TableLayout>   
+  <TableLayout
+          android:id="@+id/tablelayout10"
+          android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+         >
+               <TableRow  android:background="@drawable/et_border">  
+               <TextView   
+    android:textColor="#333333"
+     android:gravity="center" 
+      android:layout_width="95dp"
+          android:text="5"   
+           android:textSize="18sp"
+        /> 
+          
+            </TableRow>
+                    <TableRow  android:background="@drawable/et_border">  
+               <TextView   
+    android:textColor="#333333"
+     android:gravity="center" 
+      android:layout_width="95dp"
+          android:text="5"   
+           android:textSize="18sp"
+        /> 
+          
+            </TableRow>
+                    <TableRow  android:background="@drawable/et_border">  
+               <TextView   
+    android:textColor="#333333"
+     android:gravity="center" 
+      android:layout_width="95dp"
+          android:text="5"   
+           android:textSize="18sp"
+        /> 
+          
+            </TableRow>
+                    <TableRow  android:background="@drawable/et_border">  
+               <TextView   
+    android:textColor="#333333"
+     android:gravity="center" 
+      android:layout_width="95dp"
+          android:text="5"   
+           android:textSize="18sp"
+        /> 
+          
+            </TableRow>
+            </TableLayout>
+             </TableRow> 
+ </TableLayout>
+        <TableLayout
+          android:id="@+id/tablelayout11"
+          android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+ <TableRow>   
+  
+        <TextView   
+           android:layout_width="540dp"
+    android:textColor="#333333"
+    android:paddingLeft="5dp"
+     android:textSize="18sp"
+          android:text="个人史"   
+           android:background="@drawable/et_border"
+        /> 
+     <TextView   
+         android:layout_width="95dp"
+    android:textColor="#333333"
+  android:gravity="center" 
+          android:text="5"
+           android:textSize="18sp"
+           android:background="@drawable/et_border"
+        /> 
+      
+    </TableRow>   
+  </TableLayout>
+  <TableLayout
+          android:id="@+id/tablelayout12"
+          android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+          >
+ <TableRow>   
+  
+        <TextView   
+    android:layout_width="540dp"
+      android:textColor="#333333"
+      android:paddingLeft="5dp"
+       android:textSize="18sp"
+          android:text="婚育史"   
+           android:background="@drawable/et_border"
+        /> 
+     <TextView   
+     android:layout_width="95dp"
+      android:textColor="#333333"
+       android:gravity="center" 
+        android:textSize="18sp"
+          android:text="5"
+           android:background="@drawable/et_border"
+        /> 
+      
+    </TableRow>   
+    </TableLayout>
+      <TableLayout
+          android:id="@+id/tablelayout13"
+          android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+          >
+ <TableRow>   
+  
+        <TextView   
+    android:layout_width="540dp"
+    android:paddingLeft="5dp"
+          android:text="家族史"   
+           android:textSize="18sp"
+            android:textColor="#333333"
+             android:background="@drawable/et_border"
+        /> 
+     <TextView   
+   android:layout_width="95dp"
+          android:text="5"
+         android:gravity="center" 
+            android:textColor="#333333"
+             android:textSize="18sp"
+             android:background="@drawable/et_border"
+        /> 
+      
+    </TableRow>   
+  </TableLayout>
+   <TableLayout
+          android:id="@+id/tablelayout14"
+          android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+     
+          android:stretchColumns="0" >
+    <TableRow>   
+  
+        <TextView   
+    android:textColor="#333333"
+    android:paddingLeft="5dp"
+     android:textSize="20sp"
+          android:text="问诊技巧"   
+           android:textStyle="bold"
+           android:background="@drawable/et_border"
+  android:gravity="center"
+        /> 
+  
+      
+    </TableRow>   
+      </TableLayout>
+              <TableLayout
+          android:id="@+id/tablelayout15"
+          android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+         >
+ <TableRow>   
+  
+        <TextView   
+    android:layout_width="540dp"
+          android:text="条理性，能否抓住重点"   
+           android:textSize="18sp"
+          android:paddingLeft="5dp"
+           android:background="@drawable/et_border"
+            android:textColor="#333333"
+        /> 
+     <TextView   
+   android:layout_width="95dp"
+          android:text="5"
+           android:background="@drawable/et_border"
+         android:gravity="center" 
+          android:textSize="18sp"
+            android:textColor="#333333"
+        /> 
+      
+    </TableRow>   
+  </TableLayout>
+  <TableLayout
+          android:id="@+id/tablelayout16"
+          android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+         >
+ <TableRow>   
+  
+        <TextView   
+   android:layout_width="540dp"
+          android:text="是否围绕病情展开问询"   
+          android:paddingLeft="5dp"
+           android:textSize="18sp"
+           android:background="@drawable/et_border"
+            android:textColor="#333333"
+        /> 
+     <TextView   
+   android:layout_width="95dp"
+          android:text="5"
+          android:gravity="center" 
+           android:textSize="18sp"
+           android:background="@drawable/et_border"
+            android:textColor="#333333"
+        /> 
+      
+    </TableRow>   
+  </TableLayout>
+     <TableLayout
+          android:id="@+id/tablelayout17"
+          android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+ <TableRow>   
+  
+        <TextView   
+    android:layout_width="540dp"
+          android:text="问诊语言是否恰当"   
+          android:paddingLeft="5dp"
+           android:textSize="18sp"
+           android:background="@drawable/et_border"
+            android:textColor="#333333"
+        /> 
+     <TextView   
+   android:layout_width="95dp"
+          android:text="5"
+           android:textSize="18sp"
+           android:background="@drawable/et_border"
+        android:gravity="center" 
+            android:textColor="#333333"
+        /> 
+      
+    </TableRow>   
+  </TableLayout>
+        <TableLayout
+          android:id="@+id/tablelayout18"
+          android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+          >
+ <TableRow>   
+  
+        <TextView   
+    android:layout_width="540dp"
+          android:text="问诊态度是否认真，沟通是否礼貌"   
+          android:paddingLeft="5dp"
+           android:textSize="18sp"
+           android:background="@drawable/et_border"
+            android:textColor="#333333"
+        /> 
+     <TextView   
+    android:layout_width="95dp"
+          android:text="5"
+           android:textSize="18sp"
+          android:gravity="center" 
+           android:background="@drawable/et_border"
+            android:textColor="#333333"
+        /> 
+      
+    </TableRow>   
+  </TableLayout>
+        <TableLayout
+          android:id="@+id/tablelayout19"
+          android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+ <TableRow>   
+  
+        <TextView   
+    android:layout_width="540dp"
+          android:text="爱伤观念是否贯穿"   
+          android:paddingLeft="5dp"
+           android:textSize="18sp"
+           android:background="@drawable/et_border"
+            android:textColor="#333333"
+        /> 
+     <TextView   
+   android:layout_width="95dp"
+          android:text="5"
+           android:textSize="18sp"
+           android:background="@drawable/et_border"
+          android:gravity="center" 
+            android:textColor="#333333"
+        /> 
+      
+    </TableRow>   
+  </TableLayout>
+    <TableLayout
+          android:id="@+id/tablelayout20"
+          android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+     
+          android:stretchColumns="0" >
+    <TableRow>   
+  
+        <TextView   
+  
+          android:text="服装仪表"   
+           android:textSize="20sp"
+          android:paddingLeft="5dp"
+           android:background="@drawable/et_border"
+            android:textColor="#333333"
+             android:textStyle="bold"
+  android:gravity="center"
+        /> 
+  
+      
+    </TableRow>   
+      </TableLayout>
+                  <TableLayout
+          android:id="@+id/tablelayout21"
+          android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+          >
+ <TableRow>   
+  
+        <TextView   
+    android:layout_width="540dp"
+          android:text="是否整洁"   
+           android:textSize="18sp"
+          android:paddingLeft="5dp"
+           android:background="@drawable/et_border"
+            android:textColor="#333333"
+        /> 
+     <TextView   
+   android:layout_width="95dp"
+          android:text="5"
+           android:textSize="18sp"
+          android:gravity="center" 
+           android:background="@drawable/et_border"
+            android:textColor="#333333"
+        /> 
+      
+    </TableRow>   
+  </TableLayout>
+</TableLayout>
+ </ScrollView>

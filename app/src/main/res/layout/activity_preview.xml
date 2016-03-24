@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<com.example.webview.tools.ResizeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/relative2"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/scoring" >
+
+
+    <ImageView
+        android:id="@+id/imageview_preimg"
+        android:layout_width="125dp"
+        android:layout_height="140dp"
+        android:layout_marginLeft="36dp"
+        android:layout_marginTop="116dp" />
+
+    <TextView
+        android:id="@+id/textView_tableprestudentname"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="233dp"
+        android:layout_marginTop="157dp"
+        android:textColor="#333333"
+        android:textSize="9pt" />
+
+    <TextView
+        android:id="@+id/textView_tablepreexamclassnum"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="440dp"
+        android:layout_marginTop="157dp"
+        android:textColor="#333333"
+        android:textSize="9pt" />
+
+    <TextView
+        android:id="@+id/textView_tablepreexamnum"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="233dp"
+        android:layout_marginTop="115dp"
+        android:textColor="#333333"
+        android:textSize="9pt" />
+
+    <TextView
+        android:id="@+id/textView_tablepreclass"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="233dp"
+        android:layout_marginTop="237dp"
+        android:textColor="#333333"
+        android:textSize="9pt" />
+
+    <TextView
+        android:id="@+id/textView_tableprename"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="233dp"
+        android:layout_marginTop="197dp"
+        android:textColor="#333333"
+        android:textSize="9pt" />
+
+    <TextView
+        android:id="@+id/textView_tablepreexamname"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="440dp"
+        android:layout_marginTop="117dp"
+        android:textColor="#333333"
+        android:textSize="9pt" />
+
+    <TextView
+        android:id="@+id/textView_tablepreroomnum"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="438dp"
+        android:layout_marginTop="196dp"
+        android:textColor="#333333"
+        android:textSize="9pt" />
+
+    <TextView
+        android:id="@+id/textView_showpretableexamnum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="176dp"
+        android:layout_marginTop="115dp"
+        android:text="考号 :"
+        android:textColor="#333333"
+        android:textSize="9pt" />
+
+    <TextView
+        android:id="@+id/textView_showpretablestudentname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="176dp"
+        android:layout_marginTop="156dp"
+        android:text="姓名 :"
+        android:textColor="#333333"
+        android:textSize="9pt" />
+
+    <TextView
+        android:id="@+id/textView_showpretablename"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="176dp"
+        android:layout_marginTop="196dp"
+        android:text="学号 :"
+        android:textColor="#333333"
+        android:textSize="9pt" />
+
+    <TextView
+        android:id="@+id/textView_showpretableclass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="176dp"
+        android:layout_marginTop="236dp"
+        android:text="班级 :"
+        android:textColor="#000000"
+        android:textSize="9pt" />
+
+    <TextView
+        android:id="@+id/textView_showpretableexamname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="366dp"
+        android:layout_marginTop="115dp"
+        android:text="考试名 :"
+        android:textColor="#333333"
+        android:textSize="9pt" />
+
+    <TextView
+        android:id="@+id/textView_showpretableexamclassnum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="366dp"
+        android:layout_marginTop="156dp"
+        android:text="考站号 :"
+        android:textColor="#333333"
+        android:textSize="9pt" />
+
+    <TextView
+        android:id="@+id/textView_showpretableroomnum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="366dp"
+        android:layout_marginTop="197dp"
+        android:text="房间号 :"
+        android:textColor="#333333"
+        android:textSize="9pt" />
+
+    <ListView
+        android:id="@+id/mylist2"
+        android:layout_width="wrap_content"
+        android:layout_height="350dp"
+        android:layout_alignBottom="@+id/relativeLayout1"
+        android:layout_alignLeft="@+id/textView2"
+        android:layout_alignRight="@+id/textView2"
+        android:layout_below="@+id/textView2"
+        android:dividerHeight="1px" >
+    </ListView>
+
+    <Button
+        android:id="@+id/btn_presubmit"
+        android:layout_width="89dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="1160dp"
+        android:layout_marginTop="725dp"
+        android:background="@drawable/perviewbuttonselector"
+        android:text="提交"
+        android:textColor="#333333"
+        android:textSize="13pt" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="620dp"
+        android:layout_height="30dp"
+        android:layout_marginLeft="22dp"
+        android:layout_marginTop="281dp"
+        android:background="#15A2D5" />
+
+    <Button
+        android:id="@+id/btn_preback"
+        android:layout_width="89dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="1035dp"
+        android:layout_marginTop="725dp"
+        android:background="@drawable/perviewbuttonselector"
+        android:text="返回"
+        android:textColor="#333333"
+        android:textSize="13pt" />
+
+    <TextView
+        android:id="@+id/txvpreoperationmethod"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/textView2"
+        android:layout_alignLeft="@+id/textView2"
+        android:layout_marginLeft="19dp"
+        android:text="@string/operationmethod"
+        android:textColor="#E0EFFF"
+        android:textSize="10pt" />
+
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/relativeLayoutwrite"
+        android:layout_width="575dp"
+        android:layout_height="615dp"
+        android:layout_marginLeft="665dp"
+        android:layout_marginTop="80dp"
+        android:background="@drawable/et_border" >
+
+        <FrameLayout
+            android:id="@+id/tablet_view"
+            android:layout_width="565dp"
+            android:layout_height="605dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:background="@color/white" >
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/textview_prenameimg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="手写签名"
+            android:textColor="#333333"
+            android:textSize="36pt" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/txvpreoperationcontent"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/mylist2"
+        android:layout_toRightOf="@+id/imageview_preimg"
+        android:text="@string/operationcontent"
+        android:textColor="#E0EFFF"
+        android:textSize="10pt" />
+
+    <TextView
+        android:id="@+id/txvpreallscore"
+        android:layout_width="500dp"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/textView_tablepreexamname"
+        android:layout_below="@+id/mylist2"
+        android:textColor="#333333"
+        android:textSize="10pt" />
+ 
+    <Button
+        android:id="@+id/btn_preimgok"
+        android:layout_width="89dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="785dp"
+        android:layout_marginTop="725dp"
+        android:background="@drawable/perviewbuttonselector"
+        android:text="确定"
+        android:textColor="#333333"
+        android:textSize="13pt" />
+
+    <TextView
+        android:id="@+id/txvprelogout"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/txvshowprespname"
+        android:layout_alignBottom="@+id/txvshowprespname"
+        android:layout_alignParentRight="true"
+        android:text="@string/logout"
+        android:textColor="#25F2FF"
+        android:textSize="10pt" />
+
+    <TextView
+        android:id="@+id/txvshowprespname"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="31dp"
+        android:layout_toLeftOf="@+id/txvprelogout"
+        android:textColor="#333333"
+        android:textSize="10pt" />
+
+    <TextView
+        android:id="@+id/txvprethiscontext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/mylist2"
+        android:layout_toRightOf="@+id/txvprescoreoperation"
+        android:text="评论"
+        android:textColor="#E0EFFF"
+        android:textSize="10pt" />
+
+
+    <Button
+        android:id="@+id/btn_preimgcancel"
+        android:layout_width="89dp"
+        android:layout_height="40dp"
+       android:layout_marginLeft="910dp"
+        android:layout_marginTop="725dp"
+        android:background="@drawable/perviewbuttonselector"
+        android:text="擦除"
+        android:textColor="#333333"
+        android:textSize="13pt" />
+
+    <TextView
+        android:id="@+id/textView_showmessage"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/btn_preimgcancel"
+        android:layout_below="@+id/relativeLayoutwrite"
+        android:textColor="#FF0000"
+        android:textSize="10pt" />
+
+    <TextView
+        android:id="@+id/txvprescoreoperation"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/mylist2"
+        android:layout_alignLeft="@+id/textView_showpretableroomnum"
+        android:layout_marginLeft="25dp"
+        android:text="@string/scoreshow"
+        android:textColor="#E0EFFF"
+        android:textSize="10pt" />
+
+</com.example.webview.tools.ResizeLayout>
