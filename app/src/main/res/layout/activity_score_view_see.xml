@@ -156,7 +156,8 @@
 	  <ExpandableListView
 	      android:id="@+id/LVListView"
         android:layout_width="900dip"
-        android:layout_height="560dip"     
+		  android:layout_height="0dip"
+		  android:layout_weight="1"
        	android:fastScrollEnabled="true" 
        	android:gravity="center"
        android:childDivider="@color/linecolor"      

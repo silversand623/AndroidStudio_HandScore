@@ -133,8 +133,8 @@
 	   <LinearLayout
 	  android:orientation="vertical"
 	  android:layout_width="fill_parent"
-	  android:layout_height="wrap_content"	  
-	  android:gravity="left" 
+	  android:layout_height="wrap_content"
+	  android:gravity="left"
 	  android:layout_gravity="left"	  
 	  > 
 
@@ -167,7 +167,8 @@
 	  <ExpandableListView
 	      android:id="@+id/LVListView"
 	      android:layout_width="900dp"
-	      android:layout_height="560dip"
+	      android:layout_height="0dip"
+		  android:layout_weight="1"
 	      android:layout_gravity="center"
 	      android:childDivider="@color/linecolor"
 	      android:dividerHeight="1px"

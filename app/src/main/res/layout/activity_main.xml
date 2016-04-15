@@ -181,14 +181,15 @@
  <LinearLayout
 	  android:orientation="vertical"
 	  android:layout_width="fill_parent"
-	  android:layout_height="wrap_content"	  
+	  android:layout_height="0dip"
+	 android:layout_weight="1"
 	  android:gravity="center" 
 	  android:layout_gravity="center"
 	  >  
       <ListView
         android:id="@+id/LVList"
         android:layout_width="1280dip"
-        android:layout_height="520dip"
+        android:layout_height="match_parent"
        	android:fastScrollEnabled="true" 
        	android:gravity="center"
        	android:divider="@color/linecolor"
