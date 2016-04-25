@@ -219,7 +219,7 @@ public class ScoreViewActivity extends Activity {
 		loginItem=myApp.gLoginItem;
 		//正在上传成绩
 		mProgressHUD = ProgressHUD.show(this,"正在上传成绩", true,true,null);
-		float nSum = getSum(-1);
+		float nSum = getSum(1);
 		Gson gson =new Gson();
 		MarkData MkData=Infos.mark_sheet_list.get(0);
 		for(int i=0;i<MkData.item_list.size();i++)
@@ -285,7 +285,7 @@ public class ScoreViewActivity extends Activity {
                     	{
                 			if(objStudent.get("U_ID").equals(myApp.gStudentId))
                 			{
-                				objStudent.put("itemFenshu", String.format("%.2f", getSum(0)));
+                				objStudent.put("itemFenshu", String.format("%.2f", getSum(1)));
                 				break;
                 			}
                     	}
