@@ -396,9 +396,9 @@ private  SwipeLayout wipe;
                     Date dateStart=new Date();
                     Date dateEnd=new Date();
                     SimpleDateFormat format=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-                    SimpleDateFormat format1=new SimpleDateFormat("MM-dd HH:mm");
-                    String sStartTime = map.get("itemTime");
-                    String sEndTime = map.get("itemEndTime");
+                    SimpleDateFormat format1=new SimpleDateFormat("yyyy-MM-dd HH:mm");
+                    String sStartTime = result.substring(0,5)+ map.get("itemTime");
+                    String sEndTime = result.substring(0,5) + map.get("itemEndTime");
                     try {                  
                     	dateSystem=format.parse(result);  
                     	dateStart=format1.parse(sStartTime);
