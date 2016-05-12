@@ -3,9 +3,12 @@ package com.example.webview.tools;
 import com.example.webview.R;
 import com.example.webview.R.id;
 import com.example.webview.R.layout;
+import com.handscore.model.PublicPara;
 
+import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.graphics.Bitmap;
 import android.graphics.Bitmap.Config;
 import android.graphics.Canvas;
@@ -31,6 +34,7 @@ public class WritePadDialog extends Dialog {
 		super(context);
 		this.context = context;
 		this.dialogListener = dialogListener;
+
 	}
 
 	static final int BACKGROUND_COLOR = Color.WHITE;
@@ -38,6 +42,7 @@ public class WritePadDialog extends Dialog {
 	static final int BRUSH_COLOR = Color.BLACK;
 
 	PaintView mView;
+
 
 	/** The index of the current color to use. */
 	int mColorIndex;
@@ -48,7 +53,7 @@ public class WritePadDialog extends Dialog {
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		requestWindowFeature(Window.FEATURE_PROGRESS);
 		setContentView(R.layout.write_pad);
-		
+
 		p = getWindow().getAttributes();  //获取对话框当前的参数值   
 		p.height = 600;//(int) (d.getHeight() * 0.4);   //高度设置为屏幕的0.4 
 		p.width = 800;//(int) (d.getWidth() * 0.6);    //宽度设置为屏幕的0.6		   
@@ -74,8 +79,24 @@ public class WritePadDialog extends Dialog {
 			@Override
 			public void onClick(View v) {
 				try {
-					dialogListener.refreshActivity(mView.getCachebBitmap());
-					WritePadDialog.this.dismiss();
+					if (PublicPara.bflag == false)
+					{
+						AlertDialog.Builder builder = new AlertDialog.Builder(context);
+						builder.setTitle("提示").setMessage("请先签名再点击确认.")
+								.setPositiveButton("确定",
+										new DialogInterface.OnClickListener(){
+											public void onClick(DialogInterface dialoginterface, int i){
+												//按钮事件
+											}
+										})
+								.show();
+					}
+					else
+					{
+						dialogListener.refreshActivity(mView.getCachebBitmap());
+						WritePadDialog.this.dismiss();
+					}
+
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -91,7 +112,7 @@ public class WritePadDialog extends Dialog {
 			}
 		});
 	}
-	
+
 
 	/**
 	 * This view implements the drawing canvas.
@@ -130,6 +151,7 @@ public class WritePadDialog extends Dialog {
 			}
 		}
 		public void clear() {
+			PublicPara.bflag=false;
 			if (cacheCanvas != null) {
 				
 				paint.setColor(BACKGROUND_COLOR);
@@ -180,6 +202,7 @@ public class WritePadDialog extends Dialog {
 			
 			float x = event.getX();
 			float y = event.getY();
+			PublicPara.bflag=true;
 
 			switch (event.getAction()) {
 			case MotionEvent.ACTION_DOWN: {

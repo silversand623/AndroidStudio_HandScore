@@ -19,6 +19,7 @@ import com.google.gson.JsonObject;
 import com.google.gson.reflect.TypeToken;
 import com.handscore.model.LoginInfoType;
 import com.handscore.model.MarkSheet;
+import com.handscore.model.PublicPara;
 import com.handscore.model.StudentInfo;
 import com.handscore.model.MarkSheet.Items;
 import com.handscore.model.MarkSheet.MarkData;
@@ -65,7 +66,7 @@ public class ScoreViewActivity extends Activity {
  	private ProgressHUD mProgressHUD;
  	private MyExpandableListViewAdapter adapter;
  	MarkSheet Infos;
- 	
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -162,7 +163,7 @@ public class ScoreViewActivity extends Activity {
 
 				
                 //modify student state
-				if (signPath != null)
+				if (signPath != null && PublicPara.bflag)
 				{
 				
 	                for (HashMap<String, Object> map : myApp.gStudnetArray)
@@ -343,7 +344,7 @@ public class ScoreViewActivity extends Activity {
 		                           ivSign.setImageBitmap(mSignBitmap);   
 		                           tvSign.setVisibility(View.GONE);   
 		                        }   
-		                  });   
+		                  });
 		           writeTabletDialog.show();   
 		        }   
 		  };  
