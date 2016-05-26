@@ -44,13 +44,22 @@ public class CustomDialogImage extends Dialog{
         // load the url
         .load(bb);
     	imageViewUpload=(ImageView)findViewById(R.id.dialog_title_imageUpload);
+/*
     	Ion.with(imageViewUpload)
         // use a placeholder google_image if it needs to load from the network
         .placeholder(R.drawable.username)
         .error(R.drawable.username)
         // load the url
         .load(bbUpload);
-    	
+*/
+		Ion.with(context)
+				.load(bbUpload)
+				.noCache()
+				.withBitmap()
+				.placeholder(R.drawable.username)
+				.error(R.drawable.username)
+				.intoImageView(imageViewUpload);
+
 		Button btnOk = (Button) findViewById(R.id.tablet_ok);		
 		
 		btnOk.setOnClickListener(new View.OnClickListener() {
@@ -58,7 +67,7 @@ public class CustomDialogImage extends Dialog{
 			@Override
 			public void onClick(View v) {
 				try {
-					//dialogListener.refreshActivity("");
+
 					CustomDialogImage.this.dismiss();
 				} catch (Exception e) {
 					e.printStackTrace();

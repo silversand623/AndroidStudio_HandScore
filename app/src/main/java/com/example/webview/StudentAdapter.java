@@ -257,7 +257,7 @@ public class StudentAdapter extends SwipeAdapter {
 			String BaseUrl = userInfo.getString("ipconfig", null);
 			String url="http://";
 			url=url+BaseUrl+"/AppDataInterface/HandScore.aspx/SearchStudentPhoto?U_ID=";
-			final String imgUrl = url+uid.toString();
+			final String imgUrl = url+uid.toString()+"&rand="+System.currentTimeMillis();
 			if (imgUrl != null && !imgUrl.equals("")) {
 				
 				// Use Ion's builder set the google_image on an ImageView from a URL
@@ -275,7 +275,7 @@ public class StudentAdapter extends SwipeAdapter {
 		    GlobalSetting myApp = (GlobalSetting)activity.getApplication();
 		    LoginInfoType loginItem = myApp.getLoginItem();
 			url="http://"+BaseUrl+"/AppDataInterface/HandScore.aspx/SearchStudentPhotoFromUserPhoto?";
-			final String imgUpload = url+String.format("U_ID=%s&E_ID=%s", uid.toString(),loginItem.E_ID.toString());
+			final String imgUpload = url+String.format("U_ID=%s&E_ID=%s&rand=%d", uid.toString(),loginItem.E_ID.toString(),System.currentTimeMillis());
 			
 			//holder.itemName.setText((String)map.get("itemName"));
 			holder.itemTime.setText((String)map.get("itemTime"));

@@ -325,7 +325,7 @@
         android:layout_gravity="center"
         android:textSize="35dip"
 		android:textColor="@color/blue"
-        android:text="点此签名"  
+        android:text="手写签名"
         />
 	   </LinearLayout>
 	   </LinearLayout>
