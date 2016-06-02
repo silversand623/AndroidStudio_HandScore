@@ -157,38 +157,38 @@ public class StudentAdapter extends SwipeAdapter {
                 }
                 //////
                 try {
-                	
+
                 	//2015-08-24 15:38:53
-                	Date dateSystem=new Date();  
+                	Date dateSystem=new Date();
                     Date dateStart=new Date();
                     Date dateEnd=new Date();
-                    SimpleDateFormat format=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");  
-                    SimpleDateFormat format1=new SimpleDateFormat("MM-dd HH:mm");
+                    SimpleDateFormat format=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                    SimpleDateFormat format1=new SimpleDateFormat("yyyy-MM-dd HH:mm");
 					String sStartTime = result.substring(0,5)+ map.get("itemTime");
 					String sEndTime = result.substring(0,5) + map.get("itemEndTime");
-                    try {                  
-                    	dateSystem=format.parse(result);  
+                    try {
+                    	dateSystem=format.parse(result);
                     	dateStart=format1.parse(sStartTime);
                     	dateEnd = format1.parse(sEndTime);
                     	long lInterval1 = dateSystem.getTime() - dateStart.getTime();
                     	long lInterval2 = dateEnd.getTime()-dateSystem.getTime();
-                    	if (lInterval1 >=0.0 && lInterval2 >=0.0) 
+                    	if (lInterval1 >=0.0 && lInterval2 >=0.0)
                         {
-                        	Intent intent =new Intent(context,ScoreActivity.class); 
+                        	Intent intent =new Intent(context,ScoreActivity.class);
                         	context.startActivity(intent);
                         } else if (lInterval1 < 0.0)
                         {
-                        	AlertDialog.Builder builder = new AlertDialog.Builder(context); 
+                        	AlertDialog.Builder builder = new AlertDialog.Builder(context);
            				 builder.setMessage("当前学生还没有开始考试，请确认是否继续评分？");
            				 builder.setTitle("提示");
-           					builder.setPositiveButton("确认", new DialogInterface.OnClickListener() {							
-           						public void onClick(DialogInterface dialog, int which) 
+           					builder.setPositiveButton("确认", new DialogInterface.OnClickListener() {
+           						public void onClick(DialogInterface dialog, int which)
            						{
-           							Intent intent =new Intent(context,ScoreActivity.class); 
+           							Intent intent =new Intent(context,ScoreActivity.class);
            							context.startActivity(intent);
            						 }
            						});
-           					builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {					  
+           					builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {
            					 public void onClick(DialogInterface dialog, int which) {
            						 dialog.dismiss();
            					 }
@@ -196,33 +196,33 @@ public class StudentAdapter extends SwipeAdapter {
            					builder.create().show();
                         } else if (lInterval2 < 0.0)
                         {
-                        	AlertDialog.Builder builder = new AlertDialog.Builder(context); 
+                        	AlertDialog.Builder builder = new AlertDialog.Builder(context);
               				 builder.setMessage("当前学生考试时间已过,请确认是否继续评分？");
               				 builder.setTitle("提示");
-              					builder.setPositiveButton("确认", new DialogInterface.OnClickListener() {							
-              						public void onClick(DialogInterface dialog, int which) 
+              					builder.setPositiveButton("确认", new DialogInterface.OnClickListener() {
+              						public void onClick(DialogInterface dialog, int which)
               						{
-              							Intent intent =new Intent(context,ScoreActivity.class); 
+              							Intent intent =new Intent(context,ScoreActivity.class);
               							context.startActivity(intent);
               						 }
               						});
-              					builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {					  
+              					builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {
               					 public void onClick(DialogInterface dialog, int which) {
               						 dialog.dismiss();
               					 }
               					});
               					builder.create().show();
                         }
-                    } catch (ParseException e1) {  
-                        // TODO Auto-generated catch block  
-                        e1.printStackTrace();  
+                    } catch (ParseException e1) {
+                        // TODO Auto-generated catch block
+                        e1.printStackTrace();
                     }
 	            }
                 catch (Exception eJson) {
                 	////
                 }
                 /////
-                
+
             }
         });
 	}    
