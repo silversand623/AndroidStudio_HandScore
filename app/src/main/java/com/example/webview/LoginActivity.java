@@ -183,7 +183,7 @@ public class LoginActivity extends Activity implements OnResizeListener,OnCancel
 				
 				else {
 					
-					mProgressHUD = ProgressHUD.show(arg0.getContext(),"正在登陆", true,true,cancel);		
+					mProgressHUD = ProgressHUD.show(arg0.getContext(),"正在登录", true,true,cancel);
 					userInfo.edit()
 							.putString("username",usernameEditText.getText().toString())
 							.commit();
