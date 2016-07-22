@@ -284,7 +284,7 @@ public class LoginActivity extends Activity implements OnResizeListener,OnCancel
 	        }
 	        case ResultType.LoginTypeError:
 	        {
-	        	sMessage = "远程评委不允许登陆手持设备";
+	        	sMessage = "远程评委不允许登录手持设备";
 	            break;
 	        }
 	        case 9:

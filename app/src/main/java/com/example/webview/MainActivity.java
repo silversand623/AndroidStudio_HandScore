@@ -131,13 +131,13 @@ private  SwipeLayout wipe;
 			    }
 			    Intent intent = getIntent(); 
 				 String intentValue = intent.getStringExtra("viewIntent");
-				 //如果从登陆进来则重新加载数据，否则取原来的数据
+				 //如果从登录进来则重新加载数据，否则取原来的数据
 				 if(intentValue!=null)
 				 {			
 					 if(intentValue.equals("Login"))
 					 {
 						 loginItem = myApp.getLoginItem();
-				            mProgressHUD = ProgressHUD.show(this,"正在登陆", true,true,null);
+				            mProgressHUD = ProgressHUD.show(this,"正在登录", true,true,null);
 				            getStudentInfo();
 			 			
 					 }

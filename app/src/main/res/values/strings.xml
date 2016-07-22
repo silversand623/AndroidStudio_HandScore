@@ -18,7 +18,7 @@
     <string name="thisscore">得分</string>
     <string name="scoreoperation">分数操作</string>
     <string name="scoreshow">得分</string>
-    <string name="login">登陆</string>
+    <string name="login">登录</string>
     <string name="logout">退出</string>
     <string name="scan_text">将二维码放入框内, 即可自动扫描</string>
     <string name="company_name">天堰医教</string>
