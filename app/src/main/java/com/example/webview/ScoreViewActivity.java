@@ -307,7 +307,7 @@ public class ScoreViewActivity extends Activity {
                 	}
                 	else
                 	{                		
-             			AlertMessage("上传数据失败。");
+             			AlertMessage("成绩已经提交，请不要重复提交。");
                 	}
                 	
                 
