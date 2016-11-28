@@ -30,7 +30,7 @@ public class MarkSheet {
 		public String Score_Type;
 		public List<detail_item> detail_item_list;
 		public String Item_Score="-1";//initial value
-		public String MSIRD_ID;
+		public String MSIRD_ID="";
 	}
 	public static class detail_item
 	{
