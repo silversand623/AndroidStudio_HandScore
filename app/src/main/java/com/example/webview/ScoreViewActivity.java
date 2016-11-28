@@ -200,7 +200,7 @@ public class ScoreViewActivity extends Activity {
 					{
 						children_item  ci=Infos.mark_sheet_list.get(0).item_list.get(i).children_item_list.get(j);
 						nSum +=Float.parseFloat(ci.MSI_Score);
-						nTotalSum +=Float.parseFloat(ci.MSI_RealScore);
+						nTotalSum +=Float.parseFloat(ci.Item_Score);
 					}
 				}
 			}
@@ -230,14 +230,20 @@ public class ScoreViewActivity extends Activity {
 				for(int j=0;j<MkData.item_list.get(i).children_item_list.size();j++)
 				{
 					children_item childitem=MkData.item_list.get(i).children_item_list.get(j);
-					childitem.MSI_Score=childitem.MSI_RealScore;
+					childitem.MSIRD_ID="";
+					if (childitem.Score_Type != "0" && childitem.detail_item_list != null) {
+						for (int k = 0; k < childitem.detail_item_list.size(); k++) {
+							MarkSheet.detail_item detailitem = childitem.detail_item_list.get(k);
+							if (detailitem.MSIRD_Score == childitem.Item_Score) {
+								childitem.MSIRD_ID = detailitem.MSIRD_ID;
+								break;
+							}
+						}
+					}
+
 				}
 			}
-			else
-			{
-				children_item childitem=MkData.item_list.get(i).children_item_list.get(0);
-				MkData.item_list.get(i).MSI_Score=childitem.MSI_RealScore;
-			}
+
 		}
 		//String sJson ="{\"MS_ID\": \"165\",\"item_list\": [{\"MSI_ID\": \"522\",\"children_item_list\": [{\"MSI_ID\": \"523\",\"MSI_Score\": \"3\"}],\"MSI_Item\": \"%E9%92%B1%E7%89%A9%E8%BD%BB%E5%BE%AE\"}],\"MS_Sum\": \"90\",\"MS_Name\": \"%E8%AF%B7%E9%97%AE%E4%BC%81%E9%B9%85\"}";
 		String sJson=gson.toJson(MkData);
@@ -512,7 +518,7 @@ public class ScoreViewActivity extends Activity {
 						{															
 								children_item  ci=Infos.mark_sheet_list.get(0).item_list.get(groupPosition).children_item_list.get(childPosition);
 								itemHolder.itemNeiRong.setText(URLDecoder.decode(ci.MSI_Item,"UTF-8"));
-								itemHolder.itemFenZhi.setText(ci.MSI_RealScore);												
+								itemHolder.itemFenZhi.setText(ci.Item_Score);
 							
 						}
 						}

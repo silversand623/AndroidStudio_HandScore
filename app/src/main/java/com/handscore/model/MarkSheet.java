@@ -10,6 +10,8 @@ public class MarkSheet {
 	{
 		public String MS_ID;
 		public String MS_Name;
+		public String MarkSheetNumber1;
+		public String MarkSheetNumber2;
 		public List<Items> item_list;
 		public String MS_Sum;	
 	}
@@ -19,13 +21,22 @@ public class MarkSheet {
 		public String MSI_Item;
 		public List<children_item> children_item_list;
 		public String MSI_Score;
-		//public String MSI_RealScore="-1";//initial value
 	}
 	public static class children_item
 	{
 		public String MSI_ID;
 		public String MSI_Item;
 		public String MSI_Score;
-		public String MSI_RealScore="-1";//initial value
+		public String Score_Type;
+		public List<detail_item> detail_item_list;
+		public String Item_Score="-1";//initial value
+		public String MSIRD_ID;
+	}
+	public static class detail_item
+	{
+		public String MSIRD_ID;
+		public String MSIRD_Item;
+		public String MSIRD_Score;
 	}
 }
+

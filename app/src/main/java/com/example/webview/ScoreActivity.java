@@ -190,7 +190,7 @@ public class ScoreActivity extends Activity {
 									if (!bValue) {
 		                                nIndex++;
 		                            }
-									if (ci.MSI_RealScore == "-1"){
+									if (ci.Item_Score == "-1"){
 										//如果为加分制
 										if(modelValueStr.equals("0"))
 										{
@@ -201,7 +201,7 @@ public class ScoreActivity extends Activity {
 										{
 											//减分制时给-1的MSI_RealScore附为最大值,因为在不刷列表的时候数据不会赋值
 											String score=ci.MSI_Score;
-											ci.MSI_RealScore=score;
+											ci.Item_Score=score;
 										}
 		                            }
 								}
@@ -330,7 +330,7 @@ public class ScoreActivity extends Activity {
 						ci.MSI_ID=item.MSI_ID;
 						ci.MSI_Item=item.MSI_Item;
 						ci.MSI_Score=item.MSI_Score;	
-						ci.MSI_RealScore="-1";
+						ci.Item_Score="-1";
 						try {
 							childList.add(ci);
 							Infos.mark_sheet_list.get(0).item_list.get(groupPosition).children_item_list=childList;
@@ -457,7 +457,7 @@ public class ScoreActivity extends Activity {
 								//设置步长，用于计算实际的分数，实际数据*progressStep为实际分数，如果大于最大值则为最大值
 								itemHolder.segSeekBar.setProgressStep(progressStep);
 								itemHolder.segSeekBar.setMaxScore(ci.MSI_Score);
-								itemHolder.segSeekBar.setMSI_RealScore(ci.MSI_RealScore);
+								itemHolder.segSeekBar.setMSI_RealScore(ci.Item_Score);
 								
 								SeekBar sb= itemHolder.segSeekBar.getSb();
 								//设置最大步长
@@ -470,7 +470,7 @@ public class ScoreActivity extends Activity {
 								itemHolder.segSeekBar.setChildId(childPosition);							
 								TextView tv= itemHolder.segSeekBar.getTextValue();								
 								
-								if (ci.MSI_RealScore.equals("-1"))
+								if (ci.Item_Score.equals("-1"))
 								{
 									//如果是打分制
 									if(modelValueStr.equals("0"))
@@ -483,29 +483,29 @@ public class ScoreActivity extends Activity {
 										//如果是扣分制
 										sb.setProgress(sb.getMax());										
 										String score=String.valueOf(ci.MSI_Score);
-										ci.MSI_RealScore =score;
+										ci.Item_Score =score;
 										tv.setText(score);
 									}
 									
 								} else
 								{									
-									int progress=(int)(Float.parseFloat(ci.MSI_RealScore)%Float.parseFloat(progressStep)==0?Float.parseFloat(ci.MSI_RealScore)/Float.parseFloat(progressStep):Float.parseFloat(ci.MSI_RealScore)/Float.parseFloat(progressStep)+1);
+									int progress=(int)(Float.parseFloat(ci.Item_Score)%Float.parseFloat(progressStep)==0?Float.parseFloat(ci.Item_Score)/Float.parseFloat(progressStep):Float.parseFloat(ci.Item_Score)/Float.parseFloat(progressStep)+1);
 									sb.setProgress(progress);
-									tv.setText(ci.MSI_RealScore);
+									tv.setText(ci.Item_Score);
 								}					
-							System.out.println("MSI_ID:"+String.valueOf(ci.MSI_ID)+"MSI_Score:"+String.valueOf(ci.MSI_Score)+"MSI_RealScore:"+String.valueOf(ci.MSI_RealScore)+"tv:"+tv.getText().toString()+"progress:"+String.valueOf(sb.getProgress())+"maxValue:"+String.valueOf(maxValue)+"groupPosition:"+String.valueOf(groupPosition)+"childPosition:"+String.valueOf(childPosition));
+							System.out.println("MSI_ID:"+String.valueOf(ci.MSI_ID)+"MSI_Score:"+String.valueOf(ci.MSI_Score)+"MSI_RealScore:"+String.valueOf(ci.Item_Score)+"tv:"+tv.getText().toString()+"progress:"+String.valueOf(sb.getProgress())+"maxValue:"+String.valueOf(maxValue)+"groupPosition:"+String.valueOf(groupPosition)+"childPosition:"+String.valueOf(childPosition));
 							itemHolder.segSeekBar.setOnSegmentViewClickListener(new onSegmentSeekBarViewClickListener() {
 				  	             @Override  
 				  	             public void onSegmentSeekBarViewClick(int groupId,int childId,View v,String TextValueStr) {
 				  	                 children_item  ciInfo=Infos.mark_sheet_list.get(0).item_list.get(groupId).children_item_list.get(childId);	
 				  	                 if(TextValueStr.equals(""))
 				  	                 {
-				  	                	ciInfo.MSI_RealScore ="-1";
+				  	                	ciInfo.Item_Score ="-1";
 				  	                 }
 				  	                 else
 				  	                 {
 				  	                	String score=String.valueOf(TextValueStr);
-				  	                	ciInfo.MSI_RealScore =score;
+				  	                	ciInfo.Item_Score =score;
 				  	                 }
 				  	               //System.out.println("MSI_ID:"+String.valueOf(ciInfo.MSI_ID)+"MSI_Score:"+String.valueOf(ciInfo.MSI_Score)+"MSI_RealScore:"+String.valueOf(ciInfo.MSI_RealScore)+"TextValueStr:"+TextValueStr+"groupPosition:"+String.valueOf(groupId)+"childPosition:"+String.valueOf(childId));
 				  	              }  
