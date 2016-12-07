@@ -51,6 +51,7 @@ public class StudentAdapter extends SwipeAdapter {
 		this.list = data;
 		this.context = context;
 	}
+
 	@Override
     public int getSwipeLayoutResourceId(int position) {
         return R.id.swipe;
@@ -226,7 +227,7 @@ public class StudentAdapter extends SwipeAdapter {
             }
         });
 	}    
-    
+
     @Override
     public void fillValues(int position, View convertView) {
     	ViewHolder holder = null;
@@ -243,7 +244,14 @@ public class StudentAdapter extends SwipeAdapter {
 			holder.itemBanJi = (TextView) convertView.findViewById(R.id.itemBanJi);
 			holder.itemZhuangtai = (TextView) convertView.findViewById(R.id.itemZhuangtai);
 			holder.itemFenshu = (TextView) convertView.findViewById(R.id.itemFenshu);
-			
+		if (position % 2 == 0 )
+		{
+			convertView.setBackgroundColor(Color.WHITE);
+		}
+		else
+		{
+			convertView.setBackgroundColor(Color.GRAY);
+		}
 
 		if (position < list.size())
 		{
@@ -276,7 +284,7 @@ public class StudentAdapter extends SwipeAdapter {
 		    LoginInfoType loginItem = myApp.getLoginItem();
 			url="http://"+BaseUrl+"/AppDataInterface/HandScore.aspx/SearchStudentPhotoFromUserPhoto?";
 			final String imgUpload = url+String.format("U_ID=%s&E_ID=%s&rand=%d", uid.toString(),loginItem.E_ID.toString(),System.currentTimeMillis());
-			
+
 			//holder.itemName.setText((String)map.get("itemName"));
 			holder.itemTime.setText((String)map.get("itemTime"));
 			holder.itemKaohao.setText((String)map.get("itemKaohao"));
@@ -304,7 +312,15 @@ public class StudentAdapter extends SwipeAdapter {
 			{
 				holder.itemZhuangtai.setTextColor(Color.BLACK);
 				holder.TvQueKao.setVisibility(View.VISIBLE);
-				holder.TvPingFen.setText("评分");				
+				holder.TvPingFen.setText("评分");
+				//设置高亮显示
+				if (userInfo.contains("U_ID")) {
+					String sid = userInfo.getString("U_ID", null);
+					if (sid == uid.toString())
+					{
+						convertView.setBackgroundColor(Color.BLUE);
+					}
+				}
 			}
 			holder.itemFenshu.setText((String)map.get("itemFenshu"));
 			

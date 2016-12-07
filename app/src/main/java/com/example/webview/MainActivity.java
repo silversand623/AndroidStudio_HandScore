@@ -58,11 +58,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 import com.handscore.model.StudentInfo;
 import cn.king.swipelibrary.SwipeLayout;
+import java.util.Timer;
+import java.util.TimerTask;
 
 @SuppressLint("JavascriptInterface")
-public class MainActivity extends Activity implements OnItemClickListener {
-private ListView gv;
-private LoginInfoType loginItem;
+	public class MainActivity extends Activity implements OnItemClickListener {
+	private ListView gv;
+	private LoginInfoType loginItem;
 private TextView TVExit;
 private ProgressHUD mProgressHUD;
 private ArrayList<HashMap<String, Object>> studentArray;
@@ -70,14 +72,31 @@ private ArrayList<HashMap<String, Object>> filterStudentArray;
 private StudentAdapter adapter;
 private final String Status[]=new String[] {"未定义","缺考","已考","未考"};
 private SegmentView seg;
-private Handler mHandler = new Handler(); 
-
-private  SwipeLayout wipe;
+private Handler mHandler = new Handler();
+	private Timer mTimer;
+	private TimerTask mTimerTask;
+	private  SwipeLayout wipe;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		GlobalSetting myApp = (GlobalSetting)getApplication();
+
+		LoginInfoType info = myApp.gLoginItem;
+
+		mTimer = new Timer();
+		mTimerTask = new TimerTask() {
+			@Override
+			public void run() {
+				//checkNextStudent();
+				//adapter.setList(studentArray);
+				//adapter.notifyDataSetChanged();
+			}
+		};
+		//开始一个定时任务
+		mTimer.schedule(mTimerTask, 2000, 10000);
+
 		try {
 			seg=(SegmentView)findViewById(R.id.segView);
 			//wipe=(SwipeLayout)findViewById(R.id.swipe);
@@ -93,9 +112,7 @@ private  SwipeLayout wipe;
 			//SimpleAdapter对象，匹配ArrayList中的元素	
 			adapter = new StudentAdapter(this, studentArray);
 			
-			 GlobalSetting myApp = (GlobalSetting)getApplication();
-			 
-			    LoginInfoType info = myApp.gLoginItem;
+
 			    try
 			    {
 				    if (info != null) {
@@ -222,7 +239,7 @@ private  SwipeLayout wipe;
 		};
 		//退出事件
 		TVExit.setOnClickListener(new View.OnClickListener() {
-			
+
 			@Override
 			public void onClick(View v) {
 				// TODO 自动生成的方法存根
@@ -231,7 +248,70 @@ private  SwipeLayout wipe;
 		});
 		
 	}
-	
+
+	public void checkNextStudent()
+	{
+		SharedPreferences userInfo = getSharedPreferences("user_info",0);
+		if (!userInfo.contains("ipconfig")) {
+			return;
+		}
+		String BaseUrl = userInfo.getString("ipconfig", null);
+		String url="http://";
+		url=url+BaseUrl+"/AppDataInterface/HandScore.aspx/SearchCurrentSystemDatetime";
+		Ion.with(this)
+				.load(url)
+				.asString()
+				.setCallback(new FutureCallback<String>() {
+					@Override
+					public void onCompleted(Exception e, String result) {
+						if (e != null) {
+							return;
+						}
+						//////
+						try {
+
+							//2015-08-24 15:38:53
+							Date dateSystem = new Date();
+							Date dateStart = new Date();
+							Date dateEnd = new Date();
+							SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+							SimpleDateFormat format1 = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+							GlobalSetting myApp = (GlobalSetting)getApplication();
+							for (HashMap<String, Object> map : myApp.gStudnetArray) {
+								String sUid = (String) map.get("U_ID");
+								String sStartTime = result.substring(0, 5) + map.get("itemTime");
+								String sEndTime = result.substring(0, 5) + map.get("itemEndTime");
+								try {
+									dateSystem = format.parse(result);
+									dateStart = format1.parse(sStartTime);
+									dateEnd = format1.parse(sEndTime);
+									long lInterval1 = dateSystem.getTime() - dateStart.getTime();
+									long lInterval2 = dateEnd.getTime() - dateSystem.getTime();
+									if (lInterval1 >= 0.0 && lInterval2 >= 0.0) {
+
+									} else if (lInterval1 < 0.0) {
+										SharedPreferences userInfo = getSharedPreferences("user_info",0);
+										userInfo.edit()
+												.putString("U_ID",sUid)
+												.commit();
+										break;
+									} else if (lInterval2 < 0.0) {
+
+									}
+								} catch (ParseException e1) {
+									// TODO Auto-generated catch block
+									e1.printStackTrace();
+								}
+							}
+						} catch (Exception eJson) {
+							////
+						}
+						/////
+
+					}
+				});
+	}
+
 	private void updateSegment() {
 	    int nHaveScore = 0;
 	    int nAll = 0;
