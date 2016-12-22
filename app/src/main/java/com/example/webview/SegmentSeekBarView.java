@@ -13,10 +13,10 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.RatingBar;
 import android.widget.SeekBar;
-import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.RatingBar.OnRatingBarChangeListener;
 import android.widget.CompoundButton;
+import android.widget.ToggleButton;
 
 import com.handscore.model.MarkSheet;
 
@@ -32,7 +32,7 @@ public class SegmentSeekBarView extends LinearLayout{
 	private SeekBar sb;
 	private TextView TextContent;
 	private RatingBar rateBar;
-	private Switch yesOrNo;
+	private ToggleButton yesOrNo;
 	MarkSheet.children_item mci;
 	//步长参数
 	private String progressStep;
@@ -294,21 +294,40 @@ public class SegmentSeekBarView extends LinearLayout{
 			TextValue.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 23);
 			TextValue.setGravity(Gravity.CENTER);
 			//
-			rateBar = new RatingBar(getContext());
-			rateBar.setNumStars(mci.item_detail_list.size());
-			rateBar.setStepSize(1.0f);
-			rateBar.setRating(0.0f);
-
-			yesOrNo = new Switch(getContext());
-			//yesOrNo.setChecked(false);
+			yesOrNo = new ToggleButton(getContext());
+			yesOrNo.setWidth(200);
+			yesOrNo.setGravity(Gravity.CENTER);
+			yesOrNo.setText("");
+			yesOrNo.setTextOff("");
+			yesOrNo.setTextOn("");
+			yesOrNo.getBackground().setAlpha(0);
+			yesOrNo.setButtonDrawable(R.drawable.checkbox_iphone);
+			yesOrNo.setChecked(false);
 
 			yesOrNo.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
 				@Override
 				public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-					if (isChecked) {
-						//mText.setText("开启");
-					} else {
-						//mText.setText("关闭");
+					try {
+						int index = 0;
+						if (isChecked) {
+							index = 1;
+						} else {
+							index = 0;
+						}
+						if (mci != null && mci.item_detail_list != null) {
+							if (mci.item_detail_list.size() > 0) {
+								MarkSheet.detail_item item = (MarkSheet.detail_item) mci.item_detail_list.get(index);
+								TextValue.setText(item.MSIRD_Score);
+								TextContent.setText(URLDecoder.decode(item.MSIRD_Item, "UTF-8"));
+							}
+						}
+						if (listener != null) {
+							listener.onSegmentSeekBarViewClick(groupId, childId, segLeftText, TextValue.getText().toString());
+
+						}
+
+					} catch (UnsupportedEncodingException e) {
+						e.printStackTrace();
 					}
 				}
 			});
@@ -322,7 +341,7 @@ public class SegmentSeekBarView extends LinearLayout{
 			this.removeAllViews();
 			this.addView(TextValue);
 
-			//this.addView(rateBar);
+			this.addView(yesOrNo);
 			this.addView(TextContent);
 
 			this.invalidate();

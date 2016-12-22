@@ -425,6 +425,9 @@ public class ScoreActivity extends Activity {
                             children_item ci = Infos.mark_sheet_list.get(0).item_list.get(groupPosition).children_item_list.get(childPosition);
                             itemHolder.itemNeiRong.setText(URLDecoder.decode(ci.MSI_Item, "UTF-8"));
                             itemHolder.itemFenZhi.setText(ci.MSI_Score);
+                            itemHolder.segSeekBar.setGroupId(groupPosition);
+                            itemHolder.segSeekBar.setChildId(childPosition);
+
                             if (ci.Score_Type.equals("0")) {
                                 //设置步长，用于计算实际的分数，实际数据*progressStep为实际分数，如果大于最大值则为最大值
                                 itemHolder.segSeekBar.setFlag(0);
@@ -440,8 +443,7 @@ public class ScoreActivity extends Activity {
                                 sb.setMax(maxValue);
 
 
-                                itemHolder.segSeekBar.setGroupId(groupPosition);
-                                itemHolder.segSeekBar.setChildId(childPosition);
+
                                 TextView tv = itemHolder.segSeekBar.getTextValue();
 
                                 if (ci.Item_Score.equals("-1")) {
@@ -471,6 +473,7 @@ public class ScoreActivity extends Activity {
                             }else if(ci.Score_Type.equals("2"))
                             {
                                 itemHolder.segSeekBar.setFlag(2);
+                                itemHolder.segSeekBar.setChildrenItem(ci);
                                 itemHolder.segSeekBar.init();
                             }
 
