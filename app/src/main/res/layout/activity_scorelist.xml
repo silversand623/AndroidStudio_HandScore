@@ -27,7 +27,7 @@
 
     <com.example.webview.SegmentSeekBarView
         android:id="@+id/SegSeekBar"
-        android:layout_width="470dip"
+        android:layout_width="550dip"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:paddingRight="5dip"></com.example.webview.SegmentSeekBarView>

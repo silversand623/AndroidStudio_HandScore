@@ -13,10 +13,15 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.RatingBar;
 import android.widget.SeekBar;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.RatingBar.OnRatingBarChangeListener;
+import android.widget.CompoundButton;
 
 import com.handscore.model.MarkSheet;
+
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
 
 public class SegmentSeekBarView extends LinearLayout{
 	private TextView TextValue;
@@ -27,6 +32,7 @@ public class SegmentSeekBarView extends LinearLayout{
 	private SeekBar sb;
 	private TextView TextContent;
 	private RatingBar rateBar;
+	private Switch yesOrNo;
 	MarkSheet.children_item mci;
 	//步长参数
 	private String progressStep;
@@ -232,36 +238,46 @@ public class SegmentSeekBarView extends LinearLayout{
 			TextValue= new TextView(getContext());
 			TextValue.setTextColor(getResources().getColor(R.color.blue));
 			TextValue.setLayoutParams(new LayoutParams(0, LayoutParams.WRAP_CONTENT, 1));
+			TextValue.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 23);
+			TextValue.setGravity(Gravity.CENTER);
 			//
 			rateBar = new RatingBar(getContext());
-			rateBar.setNumStars(5);
+			rateBar.setNumStars(mci.item_detail_list.size());
 			rateBar.setStepSize(1.0f);
 			rateBar.setRating(0.0f);
-
 			//if rating value is changed,
 			//display the current rating value in the result (textview) automatically
 			rateBar.setOnRatingBarChangeListener(new OnRatingBarChangeListener() {
 				public void onRatingChanged(RatingBar ratingBar, float rating,
 											boolean fromUser) {
+					try {
 
-					int index = (int)rating;
-					if (mci != null)
-					{
-						if (mci.detail_item_list.size() >0)
-						{
-							MarkSheet.detail_item item = (MarkSheet.detail_item)mci.detail_item_list.get(index);
-							TextValue.setText(String.format("%.2f",item.MSIRD_Score));
+						int index = (int) rating - 1;
+						if (mci != null && mci.item_detail_list != null) {
+							if (mci.item_detail_list.size() > 0) {
+								MarkSheet.detail_item item = (MarkSheet.detail_item) mci.item_detail_list.get(index);
+								TextValue.setText(item.MSIRD_Score);
+								TextContent.setText(URLDecoder.decode(item.MSIRD_Item, "UTF-8"));
+							}
+						}
+						if (listener != null) {
+							listener.onSegmentSeekBarViewClick(groupId, childId, segLeftText, TextValue.getText().toString());
+
 						}
 					}
-					if (listener != null) {
-						listener.onSegmentSeekBarViewClick(groupId,childId,segLeftText, TextValue.getText().toString());
-
+					catch (UnsupportedEncodingException e) {
+						// TODO 自动生成的 catch 块
+						e.printStackTrace();
 					}
 				}
 			});
 
 			TextContent= new TextView(getContext());
+			TextContent.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 21);
+			TextContent.setTextColor(getResources().getColor(R.color.blue));
 			TextContent.setLayoutParams(new LayoutParams(0, LayoutParams.WRAP_CONTENT, 1));
+			TextContent.setGravity(Gravity.CENTER);
+
 			this.removeAllViews();
 			this.addView(TextValue);
 
@@ -272,7 +288,44 @@ public class SegmentSeekBarView extends LinearLayout{
 		}
 		else if(mflag==2)
 		{
+			TextValue= new TextView(getContext());
+			TextValue.setTextColor(getResources().getColor(R.color.blue));
+			TextValue.setLayoutParams(new LayoutParams(0, LayoutParams.WRAP_CONTENT, 1));
+			TextValue.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 23);
+			TextValue.setGravity(Gravity.CENTER);
+			//
+			rateBar = new RatingBar(getContext());
+			rateBar.setNumStars(mci.item_detail_list.size());
+			rateBar.setStepSize(1.0f);
+			rateBar.setRating(0.0f);
 
+			yesOrNo = new Switch(getContext());
+			//yesOrNo.setChecked(false);
+
+			yesOrNo.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+				@Override
+				public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+					if (isChecked) {
+						//mText.setText("开启");
+					} else {
+						//mText.setText("关闭");
+					}
+				}
+			});
+
+			TextContent= new TextView(getContext());
+			TextContent.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 21);
+			TextContent.setTextColor(getResources().getColor(R.color.blue));
+			TextContent.setLayoutParams(new LayoutParams(0, LayoutParams.WRAP_CONTENT, 1));
+			TextContent.setGravity(Gravity.CENTER);
+
+			this.removeAllViews();
+			this.addView(TextValue);
+
+			//this.addView(rateBar);
+			this.addView(TextContent);
+
+			this.invalidate();
 		}
 
 	}

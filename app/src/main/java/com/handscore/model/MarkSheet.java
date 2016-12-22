@@ -28,7 +28,7 @@ public class MarkSheet {
 		public String MSI_Item;
 		public String MSI_Score;
 		public String Score_Type;
-		public List<detail_item> detail_item_list;
+		public List<detail_item> item_detail_list;
 		public String Item_Score="-1";//initial value
 		public String MSIRD_ID="";
 	}

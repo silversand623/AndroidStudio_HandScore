@@ -230,9 +230,9 @@ public class ScoreViewActivity extends Activity {
 				for(int j=0;j<MkData.item_list.get(i).children_item_list.size();j++)
 				{
 					children_item childitem=MkData.item_list.get(i).children_item_list.get(j);
-					if (childitem.Score_Type != "0" && childitem.detail_item_list != null) {
-						for (int k = 0; k < childitem.detail_item_list.size(); k++) {
-							MarkSheet.detail_item detailitem = childitem.detail_item_list.get(k);
+					if (childitem.Score_Type != "0" && childitem.item_detail_list != null) {
+						for (int k = 0; k < childitem.item_detail_list.size(); k++) {
+							MarkSheet.detail_item detailitem = childitem.item_detail_list.get(k);
 							if (detailitem.MSIRD_Score == childitem.Item_Score) {
 								childitem.MSIRD_ID = detailitem.MSIRD_ID;
 								break;
