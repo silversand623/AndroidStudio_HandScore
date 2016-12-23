@@ -134,15 +134,15 @@ public class SegmentSeekBarView extends LinearLayout{
 			TextValue.setLayoutParams(new LayoutParams(0, LayoutParams.WRAP_CONTENT, 1));
 			segLeftText.setLayoutParams(new LayoutParams(0, LayoutParams.WRAP_CONTENT, 1));
 			segRightText.setLayoutParams(new LayoutParams(0, LayoutParams.WRAP_CONTENT, 1));
-			sb.setLayoutParams(new LayoutParams(170, LayoutParams.WRAP_CONTENT, 1));
+			sb.setLayoutParams(new LayoutParams(0, LayoutParams.WRAP_CONTENT, 3));
 			sb.setProgressDrawable(this.getResources().getDrawable(R.drawable.progress_holo_light));
 			sb.setThumb(this.getResources().getDrawable(R.drawable.detail_icon_schedule_ball));
 			sb.setPadding(30, 0, 30, 0);
-			//设置宽度和高度
-			segLeftText.setWidth(35);
-			segLeftText.setHeight(50);
-			segRightText.setWidth(35);
-			segRightText.setHeight(50);
+//			//设置宽度和高度
+//			segLeftText.setWidth(35);
+//			segLeftText.setHeight(50);
+//			segRightText.setWidth(35);
+//			segRightText.setHeight(50);
 
 			segLeftText.setText("+");
 			segRightText.setText("-");
@@ -245,6 +245,7 @@ public class SegmentSeekBarView extends LinearLayout{
 			rateBar.setNumStars(mci.item_detail_list.size());
 			rateBar.setStepSize(1.0f);
 			rateBar.setRating(0.0f);
+			rateBar.setLayoutParams(new LayoutParams(300, LayoutParams.WRAP_CONTENT, 1));
 			//if rating value is changed,
 			//display the current rating value in the result (textview) automatically
 			rateBar.setOnRatingBarChangeListener(new OnRatingBarChangeListener() {
@@ -278,6 +279,7 @@ public class SegmentSeekBarView extends LinearLayout{
 			TextContent.setLayoutParams(new LayoutParams(0, LayoutParams.WRAP_CONTENT, 1));
 			TextContent.setGravity(Gravity.CENTER);
 
+
 			this.removeAllViews();
 			this.addView(TextValue);
 
@@ -290,12 +292,13 @@ public class SegmentSeekBarView extends LinearLayout{
 		{
 			TextValue= new TextView(getContext());
 			TextValue.setTextColor(getResources().getColor(R.color.blue));
-			TextValue.setLayoutParams(new LayoutParams(0, LayoutParams.WRAP_CONTENT, 1));
+			//TextValue.setWidth(80);
+			TextValue.setLayoutParams(new LinearLayout.LayoutParams(0, LayoutParams.WRAP_CONTENT, 1));
 			TextValue.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 23);
 			TextValue.setGravity(Gravity.CENTER);
 			//
 			yesOrNo = new ToggleButton(getContext());
-			yesOrNo.setWidth(200);
+			//yesOrNo.setWidth(180);
 			yesOrNo.setGravity(Gravity.CENTER);
 			yesOrNo.setText("");
 			yesOrNo.setTextOff("");
@@ -303,6 +306,8 @@ public class SegmentSeekBarView extends LinearLayout{
 			yesOrNo.getBackground().setAlpha(0);
 			yesOrNo.setButtonDrawable(R.drawable.checkbox_iphone);
 			yesOrNo.setChecked(false);
+			yesOrNo.setLayoutParams(new LinearLayout.LayoutParams(0, LayoutParams.WRAP_CONTENT, 4));
+			yesOrNo.setPadding(300, 0, 100, 0);
 
 			yesOrNo.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
 				@Override
@@ -335,7 +340,8 @@ public class SegmentSeekBarView extends LinearLayout{
 			TextContent= new TextView(getContext());
 			TextContent.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 21);
 			TextContent.setTextColor(getResources().getColor(R.color.blue));
-			TextContent.setLayoutParams(new LayoutParams(0, LayoutParams.WRAP_CONTENT, 1));
+			//TextContent.setWidth(100);
+			TextContent.setLayoutParams(new LinearLayout.LayoutParams(0, LayoutParams.WRAP_CONTENT, 1));
 			TextContent.setGravity(Gravity.CENTER);
 
 			this.removeAllViews();

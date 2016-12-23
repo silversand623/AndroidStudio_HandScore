@@ -21,7 +21,8 @@
 
         <Button
             android:id="@+id/tablet_ok"
-            android:layout_width="150dp"
+            android:layout_width="0dp"
+            android:layout_weight="1.0"
             android:layout_height="45dp"
             android:layout_marginRight="20dip"
             android:background="#f5f5f5"
@@ -30,7 +31,8 @@
 
         <Button
             android:id="@+id/tablet_clear"
-            android:layout_width="150dp"
+            android:layout_width="0dp"
+            android:layout_weight="1.0"
             android:layout_height="45dp"
             android:layout_marginRight="20dip"
             android:background="#f5f5f5"
@@ -39,7 +41,8 @@
 
         <Button
             android:id="@+id/tablet_cancel"
-            android:layout_width="150dp"
+            android:layout_width="0dp"
+            android:layout_weight="1.0"
             android:layout_height="45dp"
             android:background="#f5f5f5"
             android:text="取消"
