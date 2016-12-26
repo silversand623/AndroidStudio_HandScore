@@ -242,10 +242,11 @@ public class SegmentSeekBarView extends LinearLayout{
 			TextValue.setGravity(Gravity.CENTER);
 			//
 			rateBar = new RatingBar(getContext());
+			//rateBar.setMax(mci.item_detail_list.size());
 			rateBar.setNumStars(mci.item_detail_list.size());
 			rateBar.setStepSize(1.0f);
 			rateBar.setRating(0.0f);
-			rateBar.setLayoutParams(new LayoutParams(300, LayoutParams.WRAP_CONTENT, 1));
+			rateBar.setLayoutParams(new LayoutParams(0, LayoutParams.WRAP_CONTENT, 1));
 			//if rating value is changed,
 			//display the current rating value in the result (textview) automatically
 			rateBar.setOnRatingBarChangeListener(new OnRatingBarChangeListener() {
