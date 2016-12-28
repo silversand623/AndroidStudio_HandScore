@@ -19,6 +19,7 @@ android {
 }
 
 dependencies {
+    compile 'com.iarcuschin:simpleratingbar:0.1.5'
     compile 'com.android.support:support-v4:19.1.0'
     compile 'com.google.code.gson:gson:2.2.4'
     compile files('libs/AndroidSwipeLayout-v1.1.8.jar')

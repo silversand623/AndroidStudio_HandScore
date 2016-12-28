@@ -17,6 +17,11 @@ import android.widget.TextView;
 import android.widget.RatingBar.OnRatingBarChangeListener;
 import android.widget.CompoundButton;
 import android.widget.ToggleButton;
+import com.iarcuschin.simpleratingbar.SimpleRatingBar;
+import android.util.Xml;
+import java.io.IOException;
+
+import org.xmlpull.v1.XmlPullParserException;
 
 import com.handscore.model.MarkSheet;
 
@@ -31,7 +36,8 @@ public class SegmentSeekBarView extends LinearLayout{
 	private int childId;
 	private SeekBar sb;
 	private TextView TextContent;
-	private RatingBar rateBar;
+	//private RatingBar rateBar;
+	private SimpleRatingBar rateBar;
 	private ToggleButton yesOrNo;
 	MarkSheet.children_item mci;
 	//步长参数
@@ -241,20 +247,42 @@ public class SegmentSeekBarView extends LinearLayout{
 			TextValue.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 23);
 			TextValue.setGravity(Gravity.CENTER);
 			//
-			rateBar = new RatingBar(getContext());
-			//rateBar.setMax(mci.item_detail_list.size());
-			rateBar.setNumStars(mci.item_detail_list.size());
-			rateBar.setStepSize(1.0f);
-			rateBar.setRating(0.0f);
-			rateBar.setLayoutParams(new LayoutParams(0, LayoutParams.WRAP_CONTENT, 1));
+			XmlPullParser parser = getResources().getXml(R.layout.ratebar);
+			AttributeSet attributes = Xml.asAttributeSet(parser);
+			int type;
+			try{
+				while ((type = parser.next()) != XmlPullParser.START_TAG &&
+						type != XmlPullParser.END_DOCUMENT) {
+					// Empty
+				}
+
+				if (type != XmlPullParser.START_TAG) {
+					//Log.e("","the xml file is error!\n");
+				}
+			} catch (XmlPullParserException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			rateBar = new SimpleRatingBar(getContext(),attributes);
+			rateBar.setNumberOfStars(mci.item_detail_list.size());
+
+			LinearLayout.LayoutParams params=new LayoutParams(getContext(),attributes);
+
 			//if rating value is changed,
 			//display the current rating value in the result (textview) automatically
-			rateBar.setOnRatingBarChangeListener(new OnRatingBarChangeListener() {
-				public void onRatingChanged(RatingBar ratingBar, float rating,
+			rateBar.setOnRatingBarChangeListener(new SimpleRatingBar.OnRatingBarChangeListener() {
+				public void onRatingChanged(SimpleRatingBar ratingBar, float rating,
 											boolean fromUser) {
 					try {
-
 						int index = (int) rating - 1;
+						if (index < 0)
+						{
+							ratingBar.setRating(1.0f);
+							return;
+						}
 						if (mci != null && mci.item_detail_list != null) {
 							if (mci.item_detail_list.size() > 0) {
 								MarkSheet.detail_item item = (MarkSheet.detail_item) mci.item_detail_list.get(index);
@@ -277,14 +305,14 @@ public class SegmentSeekBarView extends LinearLayout{
 			TextContent= new TextView(getContext());
 			TextContent.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 21);
 			TextContent.setTextColor(getResources().getColor(R.color.blue));
-			TextContent.setLayoutParams(new LayoutParams(0, LayoutParams.WRAP_CONTENT, 1));
+			TextContent.setLayoutParams(new LayoutParams(0, LayoutParams.WRAP_CONTENT, 1.2f));
 			TextContent.setGravity(Gravity.CENTER);
 
 
 			this.removeAllViews();
 			this.addView(TextValue);
 
-			this.addView(rateBar);
+			this.addView(rateBar,params);
 			this.addView(TextContent);
 
 			this.invalidate();

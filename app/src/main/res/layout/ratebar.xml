@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.iarcuschin.simpleratingbar.SimpleRatingBar
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="0dp"
+    android:layout_weight="3.8"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    app:srb_rating="0"
+    app:srb_stepSize="1.0"
+    app:srb_gravity="left"
+    app:srb_starsSeparation="4dp"
+    app:srb_starSize="50dp"
+    app:srb_fillColor="@color/blue"
+    app:srb_borderColor="@color/blue"
+    />
