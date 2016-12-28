@@ -248,6 +248,7 @@
             android:layout_gravity="center"
             android:childDivider="@color/linecolor"
             android:dividerHeight="1px"
+            android:listSelector="@android:color/transparent"
             android:fastScrollEnabled="true"
             android:gravity="center"></ExpandableListView>
     </LinearLayout>
