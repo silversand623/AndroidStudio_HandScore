@@ -2,7 +2,9 @@ package com.example.webview;
 
 import org.xmlpull.v1.XmlPullParser;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
@@ -45,6 +47,7 @@ public class SegmentSeekBarView extends LinearLayout{
 	private String maxScore;
 	private String MSI_RealScore;
 	private int mflag;
+	private boolean mScore;
 	//标志初始化，如果为打分制初始化时，分数不赋值
 	//private String modelValue;
 	
@@ -55,6 +58,10 @@ public class SegmentSeekBarView extends LinearLayout{
 
 	public void setSb(SeekBar sb) {
 		this.sb = sb;
+	}
+
+	public void setScore(boolean flag) {
+		this.mScore=flag;
 	}
 
 	public TextView getTextValue() {
@@ -108,7 +115,7 @@ public class SegmentSeekBarView extends LinearLayout{
 
 	public SegmentSeekBarView(Context context, AttributeSet attrs) {
 		super(context,attrs);
-
+		mScore = true;
 		//init();
 		// TODO 自动生成的构造函数存根
 	}
@@ -117,6 +124,7 @@ public class SegmentSeekBarView extends LinearLayout{
 		super(context);
 		// TODO 自动生成的构造函数存根
 		//init();
+		mScore = true;
 	}
 
 	public void setFlag(int flag) {
@@ -129,7 +137,8 @@ public class SegmentSeekBarView extends LinearLayout{
 	}
 
 	public void init() {
-		 //填充数据，如果有已保存的数据		
+		 //填充数据，如果有已保存的数据
+
 		if(mflag==0)
 		{
 			TextValue= new TextView(getContext());
@@ -358,6 +367,19 @@ public class SegmentSeekBarView extends LinearLayout{
 							index = 1;
 						} else {
 							index = 0;
+						}
+						if (mScore==false && index==0)
+						{
+							AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+							builder.setTitle("提示").setMessage("由于当前计分规则为选择No即视为不合格，用户得分将为0！")
+									.setPositiveButton("确定",
+											new DialogInterface.OnClickListener() {
+												public void onClick(DialogInterface dialoginterface, int i) {
+													//按钮事件
+												}
+											})
+									.show();
+
 						}
 						if (mci != null && mci.item_detail_list != null) {
 							if (mci.item_detail_list.size() > 0) {

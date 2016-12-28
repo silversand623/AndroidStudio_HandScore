@@ -59,6 +59,7 @@ public class ScoreActivity extends Activity {
     private String progressStep;
     private String modelValueStr;
     MarkSheet Infos;
+    private boolean bScore;
 
     //private int scorestep=100;
     @Override
@@ -66,20 +67,7 @@ public class ScoreActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_score);
         try {
-            /* Intent intent = getIntent();
-			 String intentValue = intent.getStringExtra("viewIntent");
-			 if(intentValue!=null)
-			 {			
-				 if(intentValue.equals("ClosePage"))
-				 {
-					 intent.setClass(ScoreActivity.this, MainActivity.class);
-		 			 startActivity(intent);
-		 			ScoreActivity.this.finish();
-		 			
-				 }
- 				
-			 }*/
-
+            bScore = false;
             tvTotal = (TextView) findViewById(R.id.TotalScore);
             tvActual = (TextView) findViewById(R.id.ActualScore);
             //定义评分表名称
@@ -204,14 +192,7 @@ public class ScoreActivity extends Activity {
                     if (bValue) {
                         expandableListView.setSelectedChild(nSection, nIndex, true);
                         String strMsg = String.format("还有%d项未打分，请完成打分再预览", nScoreCount);
-	                   /* CustomDialog customDialog = new CustomDialog(ScoreActivity.this,
-	        					R.style.MyDialog, new DialogListener() {
-	        						@Override
-	        						public void refreshActivity(Object object) {
-	        	
-	        						}
-	        					}, strMsg, false);
-	        			customDialog.show();*/
+
                         AlertDialog.Builder builder = new AlertDialog.Builder(ScoreActivity.this);
                         builder.setTitle("提示").setMessage(strMsg)
                                 .setPositiveButton("确定",
@@ -227,6 +208,7 @@ public class ScoreActivity extends Activity {
                     GlobalSetting myApp = (GlobalSetting) getApplication();
                     myApp.setMarkSheet(Infos);
                     Intent intent = new Intent(ScoreActivity.this, ScoreViewActivity.class);
+                    
                     ScoreActivity.this.startActivity(intent);
                 }
 
@@ -267,6 +249,13 @@ public class ScoreActivity extends Activity {
                             }.getType();
                             Infos = gson.fromJson(result, type);
                             PingFenBiaoName.setText(URLDecoder.decode(Infos.mark_sheet_list.get(0).MS_Name, "UTF-8"));
+                            if (Infos.mark_sheet_list.get(0).MarkSheetNumber2.equals("0"))
+                            {
+                                bScore = true;
+                            }else
+                            {
+                                bScore = false;
+                            }
                             adapter.notifyDataSetChanged();
                             for (int i = 0; i < adapter.getGroupCount(); i++) {
                                 expandableListView.expandGroup(i);
@@ -287,6 +276,7 @@ public class ScoreActivity extends Activity {
     private float getSum(int nCase) {
         float nSum = 0.0f;
         float nTotalSum = 0.0f;
+        boolean bZero = false;
         if(Infos!=null)
         {
             if(Infos.mark_sheet_list.size()>0)
@@ -302,6 +292,13 @@ public class ScoreActivity extends Activity {
                         {
 
                         }else {
+                            if (ci.Score_Type.equals("2"))
+                            {
+                                if (ci.Item_Score.equals(ci.item_detail_list.get(0).MSIRD_Score))
+                                {
+                                    bZero = true;
+                                }
+                            }
                             nTotalSum += Float.parseFloat(ci.Item_Score);
                         }
                     }
@@ -313,7 +310,12 @@ public class ScoreActivity extends Activity {
             return nSum;
         } else
         {
-            return nTotalSum;
+            if (bScore == false && bZero)
+            {
+                return 0;
+            }else {
+                return nTotalSum;
+            }
         }
     }
 
@@ -468,6 +470,7 @@ public class ScoreActivity extends Activity {
                             itemHolder.itemFenZhi.setText(ci.MSI_Score);
                             itemHolder.segSeekBar.setGroupId(groupPosition);
                             itemHolder.segSeekBar.setChildId(childPosition);
+                            itemHolder.segSeekBar.setScore(bScore);
 
                             if (ci.Score_Type.equals("0")) {
                                 //设置步长，用于计算实际的分数，实际数据*progressStep为实际分数，如果大于最大值则为最大值
