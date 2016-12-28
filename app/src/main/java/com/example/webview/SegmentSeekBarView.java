@@ -326,17 +326,28 @@ public class SegmentSeekBarView extends LinearLayout{
 			TextValue.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 23);
 			TextValue.setGravity(Gravity.CENTER);
 			//
-			yesOrNo = new ToggleButton(getContext());
-			//yesOrNo.setWidth(180);
-			yesOrNo.setGravity(Gravity.CENTER);
-			yesOrNo.setText("");
-			yesOrNo.setTextOff("");
-			yesOrNo.setTextOn("");
-			yesOrNo.getBackground().setAlpha(0);
-			yesOrNo.setButtonDrawable(R.drawable.checkbox_iphone);
-			yesOrNo.setChecked(false);
-			yesOrNo.setLayoutParams(new LinearLayout.LayoutParams(0, LayoutParams.WRAP_CONTENT, 4));
-			yesOrNo.setPadding(300, 0, 100, 0);
+			XmlPullParser parser = getResources().getXml(R.layout.checkbox);
+			AttributeSet attributes = Xml.asAttributeSet(parser);
+			int type;
+			try{
+				while ((type = parser.next()) != XmlPullParser.START_TAG &&
+						type != XmlPullParser.END_DOCUMENT) {
+					// Empty
+				}
+
+				if (type != XmlPullParser.START_TAG) {
+					//Log.e("","the xml file is error!\n");
+				}
+			} catch (XmlPullParserException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			yesOrNo = new ToggleButton(getContext(),attributes);
+
+			LinearLayout.LayoutParams params=new LayoutParams(getContext(),attributes);
 
 			yesOrNo.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
 				@Override
@@ -369,14 +380,13 @@ public class SegmentSeekBarView extends LinearLayout{
 			TextContent= new TextView(getContext());
 			TextContent.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 21);
 			TextContent.setTextColor(getResources().getColor(R.color.blue));
-			//TextContent.setWidth(100);
-			TextContent.setLayoutParams(new LinearLayout.LayoutParams(0, LayoutParams.WRAP_CONTENT, 1));
+			TextContent.setLayoutParams(new LinearLayout.LayoutParams(0, LayoutParams.WRAP_CONTENT, 1.2f));
 			TextContent.setGravity(Gravity.CENTER);
 
 			this.removeAllViews();
 			this.addView(TextValue);
 
-			this.addView(yesOrNo);
+			this.addView(yesOrNo,params);
 			this.addView(TextContent);
 
 			this.invalidate();
