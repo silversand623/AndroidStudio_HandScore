@@ -225,7 +225,7 @@ public class ScoreViewActivity extends Activity {
 		MarkData MkData=Infos.mark_sheet_list.get(0);
 		for(int i=0;i<MkData.item_list.size();i++)
 		{
-			if(MkData.item_list.get(i).children_item_list.size()>1)
+			if(MkData.item_list.get(i).children_item_list.size()>=1)
 			{
 				for(int j=0;j<MkData.item_list.get(i).children_item_list.size();j++)
 				{

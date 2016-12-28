@@ -322,7 +322,7 @@ public class SegmentSeekBarView extends LinearLayout{
 			TextValue= new TextView(getContext());
 			TextValue.setTextColor(getResources().getColor(R.color.blue));
 			//TextValue.setWidth(80);
-			TextValue.setLayoutParams(new LinearLayout.LayoutParams(0, LayoutParams.WRAP_CONTENT, 1));
+			TextValue.setLayoutParams(new LinearLayout.LayoutParams(90, LayoutParams.WRAP_CONTENT, 1));
 			TextValue.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 23);
 			TextValue.setGravity(Gravity.CENTER);
 			//
@@ -380,7 +380,7 @@ public class SegmentSeekBarView extends LinearLayout{
 			TextContent= new TextView(getContext());
 			TextContent.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 21);
 			TextContent.setTextColor(getResources().getColor(R.color.blue));
-			TextContent.setLayoutParams(new LinearLayout.LayoutParams(0, LayoutParams.WRAP_CONTENT, 1.2f));
+			TextContent.setLayoutParams(new LinearLayout.LayoutParams(110, LayoutParams.WRAP_CONTENT, 1.2f));
 			TextContent.setGravity(Gravity.CENTER);
 
 			this.removeAllViews();

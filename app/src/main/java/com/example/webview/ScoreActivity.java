@@ -48,6 +48,8 @@ public class ScoreActivity extends Activity {
     private TextView TVBack;
     private TextView TVyulan;
     private TextView TVshezhi;
+    private TextView tvTotal;
+    private TextView tvActual;
 
     private TextView PingFenBiaoName;
     private ExpandableListView expandableListView;
@@ -77,6 +79,9 @@ public class ScoreActivity extends Activity {
 				 }
  				
 			 }*/
+
+            tvTotal = (TextView) findViewById(R.id.TotalScore);
+            tvActual = (TextView) findViewById(R.id.ActualScore);
             //定义评分表名称
             PingFenBiaoName = (TextView) findViewById(R.id.PingFenBiaoName);
             SharedPreferences userInfo = getSharedPreferences("user_info", 0);
@@ -267,6 +272,8 @@ public class ScoreActivity extends Activity {
                                 expandableListView.expandGroup(i);
                             }
 
+                            tvTotal.setText(String.valueOf(getSum(0)));
+
                         } catch (Exception eJson) {
                             System.out.println(eJson);
                         }
@@ -274,6 +281,40 @@ public class ScoreActivity extends Activity {
 
                     }
                 });
+    }
+
+    //0 return Total score,else return actural score
+    private float getSum(int nCase) {
+        float nSum = 0.0f;
+        float nTotalSum = 0.0f;
+        if(Infos!=null)
+        {
+            if(Infos.mark_sheet_list.size()>0)
+            {
+                for (int i = 0; i < Infos.mark_sheet_list.get(0).item_list.size(); i++)
+                {
+
+                    for (int j=0; j < Infos.mark_sheet_list.get(0).item_list.get(i).children_item_list.size(); j++)
+                    {
+                        children_item  ci=Infos.mark_sheet_list.get(0).item_list.get(i).children_item_list.get(j);
+                        nSum +=Float.parseFloat(ci.MSI_Score);
+                        if (ci.Item_Score.equals("-1"))
+                        {
+
+                        }else {
+                            nTotalSum += Float.parseFloat(ci.Item_Score);
+                        }
+                    }
+                }
+            }
+        }
+        if (nCase ==0)
+        {
+            return nSum;
+        } else
+        {
+            return nTotalSum;
+        }
     }
 
     @Override
@@ -489,6 +530,7 @@ public class ScoreActivity extends Activity {
                                         String score = String.valueOf(TextValueStr);
                                         ciInfo.Item_Score = score;
                                     }
+                                    tvActual.setText(String.valueOf(getSum(1)));
                                     //System.out.println("MSI_ID:"+String.valueOf(ciInfo.MSI_ID)+"MSI_Score:"+String.valueOf(ciInfo.MSI_Score)+"MSI_RealScore:"+String.valueOf(ciInfo.MSI_RealScore)+"TextValueStr:"+TextValueStr+"groupPosition:"+String.valueOf(groupId)+"childPosition:"+String.valueOf(childId));
                                 }
                             });
