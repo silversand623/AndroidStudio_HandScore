@@ -208,7 +208,9 @@ public class ScoreActivity extends Activity {
                     GlobalSetting myApp = (GlobalSetting) getApplication();
                     myApp.setMarkSheet(Infos);
                     Intent intent = new Intent(ScoreActivity.this, ScoreViewActivity.class);
-                    
+                    Bundle bundle = new Bundle();
+                    bundle.putFloat("ActualScore",getSum(1));
+                    intent.putExtra("bundle",bundle);
                     ScoreActivity.this.startActivity(intent);
                 }
 
