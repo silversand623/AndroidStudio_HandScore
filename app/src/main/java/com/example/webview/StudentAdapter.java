@@ -316,7 +316,7 @@ public class StudentAdapter extends SwipeAdapter {
 				//设置高亮显示
 				if (userInfo.contains("U_ID")) {
 					String sid = userInfo.getString("U_ID", null);
-					if (sid == uid.toString())
+					if (sid.equals(uid.toString()))
 					{
 						convertView.setBackgroundColor(Color.BLUE);
 					}

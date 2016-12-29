@@ -45,6 +45,7 @@ import android.widget.ListView;
 import android.widget.SeekBar;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
+import android.media.MediaPlayer;
 
 public class ScoreActivity extends Activity {
     private TextView TVBack;
@@ -97,6 +98,10 @@ public class ScoreActivity extends Activity {
                                             }
                                         })
                                 .show();
+
+                        MediaPlayer mediaPlayer = MediaPlayer.create(ScoreActivity.this,
+                                R.raw.beep);
+                        mediaPlayer.start();
                     }
                 }
             });
