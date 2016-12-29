@@ -308,7 +308,21 @@ public class MainActivity extends Activity implements OnItemClickListener {
                                     if (lInterval1 >= 0.0 && lInterval2 >= 0.0) {
                                         bTag = true;
                                     } else if (lInterval1 < 0.0) {
-
+                                        if (!bTag)
+                                        {
+                                            SharedPreferences userInfo = getSharedPreferences("user_info", 0);
+                                            String sTemp = userInfo.getString("U_ID", null);
+                                            if (sTemp == null || !sUid.equals(sTemp))
+                                            {
+                                                bRefresh = true;
+                                                userInfo.edit()
+                                                        .putString("U_ID", sUid)
+                                                        .commit();
+                                                adapter.setList(studentArray);
+                                                adapter.notifyDataSetChanged();
+                                            }
+                                            break;
+                                        }
                                     } else if (lInterval2 < 0.0) {
 
                                     }

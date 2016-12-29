@@ -72,16 +72,16 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/webview/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="428">
-              <caret line="292" column="72" selection-start-line="292" selection-start-column="72" selection-end-line="292" selection-end-column="72" />
+            <state relative-caret-position="273">
+              <caret line="310" column="45" selection-start-line="310" selection-start-column="45" selection-end-line="310" selection-end-column="45" />
               <folding>
                 <element signature="e#3074#3299#0" expanded="true" />
                 <element signature="e#3298#3299#0" expanded="true" />
-                <element signature="e#10080#13363#0" expanded="true" />
-                <element signature="e#13362#13363#0" expanded="true" />
+                <element signature="e#10080#14366#0" expanded="true" />
+                <element signature="e#14365#14366#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -124,14 +124,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ScoreActivity.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ScoreActivity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/webview/ScoreActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="462">
-              <caret line="103" column="44" selection-start-line="103" selection-start-column="44" selection-end-line="103" selection-end-column="44" />
+            <state relative-caret-position="-682">
+              <caret line="86" column="12" selection-start-line="86" selection-start-column="12" selection-end-line="86" selection-end-column="12" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#2990#4200#0" expanded="true" />
                 <element signature="e#4199#4200#0" expanded="true" />
               </folding>
             </state>
@@ -1654,9 +1653,9 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/webview/SegmentSeekBarView.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/ratebar.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_score.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/webview/MainActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/webview/StudentAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/webview/ScoreActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/webview/MainActivity.java" />
       </list>
     </option>
   </component>
@@ -2231,7 +2230,7 @@
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2773645" sideWeight="0.49342826" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2773645" sideWeight="0.49342826" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32943678" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32837406" sideWeight="0.4890471" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -2633,19 +2632,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/webview/MainActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="428">
-          <caret line="292" column="72" selection-start-line="292" selection-start-column="72" selection-end-line="292" selection-end-column="72" />
-          <folding>
-            <element signature="e#3074#3299#0" expanded="true" />
-            <element signature="e#3298#3299#0" expanded="true" />
-            <element signature="e#10080#13363#0" expanded="true" />
-            <element signature="e#13362#13363#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/webview/myScoreAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-814">
@@ -2679,12 +2665,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/webview/ScoreActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="103" column="44" selection-start-line="103" selection-start-column="44" selection-end-line="103" selection-end-column="44" />
+        <state relative-caret-position="-682">
+          <caret line="86" column="12" selection-start-line="86" selection-start-column="12" selection-end-line="86" selection-end-column="12" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2990#4200#0" expanded="true" />
             <element signature="e#4199#4200#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/webview/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="273">
+          <caret line="310" column="45" selection-start-line="310" selection-start-column="45" selection-end-line="310" selection-end-column="45" />
+          <folding>
+            <element signature="e#3074#3299#0" expanded="true" />
+            <element signature="e#3298#3299#0" expanded="true" />
+            <element signature="e#10080#14366#0" expanded="true" />
+            <element signature="e#14365#14366#0" expanded="true" />
           </folding>
         </state>
       </provider>
