@@ -29,6 +29,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.SystemClock;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
@@ -36,6 +37,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.Button;
+import android.widget.Chronometer;
 import android.widget.EditText;
 import android.widget.ExpandableListView;
 import android.widget.ExpandableListView.OnGroupClickListener;
@@ -60,6 +62,8 @@ public class ScoreActivity extends Activity {
     private String modelValueStr;
     MarkSheet Infos;
     private boolean bScore;
+    private Chronometer chronometer;
+    private float fStartTime;
 
     //private int scorestep=100;
     @Override
@@ -70,6 +74,35 @@ public class ScoreActivity extends Activity {
             bScore = false;
             tvTotal = (TextView) findViewById(R.id.TotalScore);
             tvActual = (TextView) findViewById(R.id.ActualScore);
+
+            Intent intent = getIntent();
+            Bundle bundle = intent.getBundleExtra("bundle");
+            if (bundle != null) {
+                fStartTime = bundle.getFloat("remainTime");
+            }
+            chronometer = (Chronometer) findViewById(R.id.chronometer);
+            chronometer.setOnChronometerTickListener(new Chronometer.OnChronometerTickListener() {
+                @Override
+                public void onChronometerTick(Chronometer chronometer) {
+                    if (SystemClock.elapsedRealtime() - chronometer.getBase() > fStartTime) {
+                        chronometer.stop();
+                        fStartTime = 1000*1000*60;
+                        // 给用户提示
+                        AlertDialog.Builder builder = new AlertDialog.Builder(ScoreActivity.this);
+                        builder.setTitle("提示").setMessage("您设置的评分提醒时间已到，请尽快完成评分！")
+                                .setPositiveButton("确定",
+                                        new DialogInterface.OnClickListener() {
+                                            public void onClick(DialogInterface dialoginterface, int i) {
+                                                //按钮事件
+                                            }
+                                        })
+                                .show();
+                    }
+                }
+            });
+
+
+
             //定义评分表名称
             PingFenBiaoName = (TextView) findViewById(R.id.PingFenBiaoName);
             SharedPreferences userInfo = getSharedPreferences("user_info", 0);
@@ -215,6 +248,10 @@ public class ScoreActivity extends Activity {
                 }
 
             });
+
+            chronometer.setBase(SystemClock.elapsedRealtime());
+            // 开始记时
+            chronometer.start();
 
         } catch (Exception e) {
             // TODO 自动生成的 catch 块

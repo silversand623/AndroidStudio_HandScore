@@ -485,9 +485,21 @@ private Handler mHandler = new Handler();
                     	dateEnd = format1.parse(sEndTime);
                     	long lInterval1 = dateSystem.getTime() - dateStart.getTime();
                     	long lInterval2 = dateEnd.getTime()-dateSystem.getTime();
-                    	if (lInterval1 >=0.0 && lInterval2 >=0.0) 
+
+						SharedPreferences userInfo = getSharedPreferences("user_info",0);
+						if (!userInfo.contains("timeinterval")) {
+							return;
+						}
+						String sTime = userInfo.getString("timeinterval", null);
+						float fTime = Float.valueOf(sTime);
+						final Intent intent =new Intent(MainActivity.this,ScoreActivity.class);
+						Bundle bundle = new Bundle();
+						bundle.putFloat("remainTime",lInterval2-fTime*60*1000);
+						intent.putExtra("bundle",bundle);
+
+						if (lInterval1 >=0.0 && lInterval2 >=0.0)
                         {
-                        	Intent intent =new Intent(MainActivity.this,ScoreActivity.class); 
+
                         	MainActivity.this.startActivity(intent);
                         } else if (lInterval1 < 0.0)
                         {
@@ -497,8 +509,7 @@ private Handler mHandler = new Handler();
            					builder.setPositiveButton("确认", new DialogInterface.OnClickListener() {							
            						public void onClick(DialogInterface dialog, int which) 
            						{
-           							Intent intent =new Intent(MainActivity.this,ScoreActivity.class); 
-                                	MainActivity.this.startActivity(intent);
+           							MainActivity.this.startActivity(intent);
            						 }
            						});
            					builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {					  
@@ -515,8 +526,7 @@ private Handler mHandler = new Handler();
               					builder.setPositiveButton("确认", new DialogInterface.OnClickListener() {							
               						public void onClick(DialogInterface dialog, int which) 
               						{
-              							Intent intent =new Intent(MainActivity.this,ScoreActivity.class); 
-                                   	MainActivity.this.startActivity(intent);
+              							MainActivity.this.startActivity(intent);
               						 }
               						});
               					builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {					  
