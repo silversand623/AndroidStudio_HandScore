@@ -92,7 +92,13 @@ public class LoginActivity extends Activity implements OnResizeListener,OnCancel
 		passwordEditText.setInputType(0x81);
 		ResizeLayout relativeLayout = (ResizeLayout) findViewById(R.id.relative1);
 		relativeLayout.setOnResizeListener(this);
-		
+
+		SharedPreferences userInfo = getSharedPreferences("user_info", 0);
+		if (!userInfo.contains("timeinterval")) {
+			userInfo.edit()
+					.putString("timeinterval", "1")
+					.commit();
+		}
 		//LoginHidPanel=(LinearLayout) findViewById(R.id.LoginHidPanel);
 		
 		setupViews();
