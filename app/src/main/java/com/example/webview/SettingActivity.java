@@ -94,6 +94,19 @@ public class SettingActivity extends Activity {
             public void onClick(View v) {
                 // TODO 自动生成的方法存根
                 try {
+                    if (timeInterval.getText().toString().equals(""))
+                    {
+                        AlertDialog.Builder builder = new AlertDialog.Builder(SettingActivity.this);
+                        builder.setTitle("输入范围错误").setMessage("请输入正确的值")
+                                .setPositiveButton("确定",
+                                        new DialogInterface.OnClickListener() {
+                                            public void onClick(DialogInterface dialoginterface, int i) {
+                                                //按钮事件
+                                            }
+                                        })
+                                .show();
+                        return;
+                    }
                     GlobalSetting myApp = (GlobalSetting) getApplication();
                     Date dateStart = new Date();
                     Date dateEnd = new Date();

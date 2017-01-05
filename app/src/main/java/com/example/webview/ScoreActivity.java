@@ -18,6 +18,7 @@ import com.handscore.model.StudentInfo;
 import com.handscore.model.MarkSheet.Items;
 import com.handscore.model.MarkSheet.children_item;
 import com.handscore.model.StudentInfo.Student;
+import com.iarcuschin.simpleratingbar.SimpleRatingBar;
 import com.koushikdutta.async.future.FutureCallback;
 import com.koushikdutta.ion.Ion;
 
@@ -46,6 +47,7 @@ import android.widget.SeekBar;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
 import android.media.MediaPlayer;
+import android.widget.ToggleButton;
 
 public class ScoreActivity extends Activity {
     private TextView TVBack;
@@ -111,17 +113,21 @@ public class ScoreActivity extends Activity {
             //定义评分表名称
             PingFenBiaoName = (TextView) findViewById(R.id.PingFenBiaoName);
             SharedPreferences userInfo = getSharedPreferences("user_info", 0);
-            //填充数据，如果有已保存的数据
-            if (userInfo.contains("progressStep")) {
-                progressStep = userInfo.getString("progressStep", null);
-            } else {
-                progressStep = "1";
-            }
-            if (userInfo.contains("modelValue")) {
-                modelValueStr = userInfo.getString("modelValue", null);
-            } else {
-                modelValueStr = "0";
-            }
+
+            progressStep = "1";
+            modelValueStr = "0";
+
+//            //填充数据，如果有已保存的数据
+//            if (userInfo.contains("progressStep")) {
+//                progressStep = userInfo.getString("progressStep", null);
+//            } else {
+//                progressStep = "1";
+//            }
+//            if (userInfo.contains("modelValue")) {
+//                modelValueStr = userInfo.getString("modelValue", null);
+//            } else {
+//                modelValueStr = "0";
+//            }
 
             GlobalSetting myApp = (GlobalSetting) getApplication();
 
@@ -558,19 +564,68 @@ public class ScoreActivity extends Activity {
                                 itemHolder.segSeekBar.setChildrenItem(ci);
                                 itemHolder.segSeekBar.init();
 
+                                TextView tv = itemHolder.segSeekBar.getTextValue();
+                                if (!ci.Item_Score.equals("-1"))
+                                {
+                                    tv.setText(ci.Item_Score);
+                                }
+                                SimpleRatingBar rateBar = itemHolder.segSeekBar.getRateBar();
+                                if (!ci.rating.equals("-1")) {
+                                    rateBar.setRating(Float.valueOf(ci.rating));
+                                }
+
+                                TextView tvDetail = itemHolder.segSeekBar.getDetailValue();
+                                tvDetail.setText(ci.detail);
+                                
+
                             }else if(ci.Score_Type.equals("2"))
                             {
                                 itemHolder.segSeekBar.setFlag(2);
                                 itemHolder.segSeekBar.setChildrenItem(ci);
                                 itemHolder.segSeekBar.init();
+
+                                TextView tv = itemHolder.segSeekBar.getTextValue();
+                                if (!ci.Item_Score.equals("-1"))
+                                {
+                                    tv.setText(ci.Item_Score);
+                                }
+
+                                ToggleButton YesOrNo = itemHolder.segSeekBar.getYesOrNo();
+                                if (ci.yesorno.equals("-1")) {
+
+                                }else if (ci.yesorno.equals("0"))
+                                {
+                                    YesOrNo.setChecked(false);
+                                }else
+                                {
+                                    YesOrNo.setChecked(true);
+                                }
+
+                                TextView tvDetail = itemHolder.segSeekBar.getDetailValue();
+                                tvDetail.setText(ci.detail);
+
                             }
 
 
                             //System.out.println("MSI_ID:" + String.valueOf(ci.MSI_ID) + "MSI_Score:" + String.valueOf(ci.MSI_Score) + "MSI_RealScore:" + String.valueOf(ci.Item_Score) + "tv:" + tv.getText().toString() + "progress:" + String.valueOf(sb.getProgress()) + "maxValue:" + String.valueOf(maxValue) + "groupPosition:" + String.valueOf(groupPosition) + "childPosition:" + String.valueOf(childPosition));
                             itemHolder.segSeekBar.setOnSegmentViewClickListener(new onSegmentSeekBarViewClickListener() {
                                 @Override
-                                public void onSegmentSeekBarViewClick(int groupId, int childId, View v, String TextValueStr) {
+                                public void onSegmentSeekBarViewClick(int groupId, int childId, View v, HashMap<String, Object> map) {
                                     children_item ciInfo = Infos.mark_sheet_list.get(0).item_list.get(groupId).children_item_list.get(childId);
+                                    String TextValueStr = (String) map.get("totalScore");
+                                    if(map.containsKey("rating"))
+                                    {
+                                        ciInfo.rating = (String) map.get("rating");
+                                    }
+                                    if(map.containsKey("detailContent"))
+                                    {
+                                        ciInfo.detail = (String) map.get("detailContent");
+                                    }
+                                    if(map.containsKey("yesorno"))
+                                    {
+                                        ciInfo.yesorno = (String) map.get("yesorno");
+                                    }
+
                                     if (TextValueStr.equals("")) {
                                         ciInfo.Item_Score = "-1";
                                     } else {

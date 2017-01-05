@@ -89,22 +89,17 @@ public class MainActivity extends Activity implements OnItemClickListener {
 
         LoginInfoType info = myApp.gLoginItem;
 
-        bRefresh = true;
+        //bRefresh = true;
 
         mTimer = new Timer();
         mTimerTask = new TimerTask() {
             @Override
             public void run() {
-                if (bRefresh) {
-
-                    checkNextStudent();
-                    bRefresh = false;
-
-                }
+                checkNextStudent();
             }
         };
         //开始一个定时任务
-        mTimer.schedule(mTimerTask, 2000, 10000);
+        mTimer.schedule(mTimerTask, 2000, 5000);
 
         try {
             seg = (SegmentView) findViewById(R.id.segView);
@@ -288,7 +283,6 @@ public class MainActivity extends Activity implements OnItemClickListener {
                                     String sTemp = userInfo.getString("U_ID", null);
                                     if (sTemp == null || !sUid.equals(sTemp))
                                     {
-                                        bRefresh = true;
                                         userInfo.edit()
                                                 .putString("U_ID", sUid)
                                                 .commit();
@@ -314,7 +308,6 @@ public class MainActivity extends Activity implements OnItemClickListener {
                                             String sTemp = userInfo.getString("U_ID", null);
                                             if (sTemp == null || !sUid.equals(sTemp))
                                             {
-                                                bRefresh = true;
                                                 userInfo.edit()
                                                         .putString("U_ID", sUid)
                                                         .commit();

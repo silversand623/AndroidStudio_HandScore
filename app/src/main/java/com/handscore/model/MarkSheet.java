@@ -31,6 +31,9 @@ public class MarkSheet {
 		public List<detail_item> item_detail_list;
 		public String Item_Score="-1";//initial value
 		public String MSIRD_ID="";
+		public String rating="-1";//星星值
+		public String yesorno="-1";//0代表no，1代表yes
+		public String detail="";
 	}
 	public static class detail_item
 	{

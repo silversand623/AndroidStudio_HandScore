@@ -29,6 +29,7 @@ import com.handscore.model.MarkSheet;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
+import java.util.HashMap;
 
 public class SegmentSeekBarView extends LinearLayout{
 	private TextView TextValue;
@@ -52,8 +53,16 @@ public class SegmentSeekBarView extends LinearLayout{
 	//private String modelValue;
 	
 	private onSegmentSeekBarViewClickListener listener;
+	public SimpleRatingBar getRateBar() {
+		return rateBar;
+	}
+
 	public SeekBar getSb() {
 		return sb;
+	}
+
+	public ToggleButton getYesOrNo() {
+		return yesOrNo;
 	}
 
 	public void setSb(SeekBar sb) {
@@ -66,6 +75,10 @@ public class SegmentSeekBarView extends LinearLayout{
 
 	public TextView getTextValue() {
 		return TextValue;
+	}
+
+	public TextView getDetailValue() {
+		return TextContent;
 	}
 
 	public void setTextValue(TextView textValue) {
@@ -196,7 +209,9 @@ public class SegmentSeekBarView extends LinearLayout{
 					setRealValue();
 
 					if (listener != null) {
-						listener.onSegmentSeekBarViewClick(groupId,childId,segLeftText, TextValue.getText().toString());
+						HashMap<String, Object> map = new HashMap<String, Object>();
+						map.put("totalScore", TextValue.getText().toString());
+						listener.onSegmentSeekBarViewClick(groupId,childId,segLeftText, map);
 						//listener.onSegmentSeekBarViewClick(TextValue, 0);
 					}
 				}
@@ -213,7 +228,10 @@ public class SegmentSeekBarView extends LinearLayout{
 					}
 					setRealValue();
 					if (listener != null) {
-						listener.onSegmentSeekBarViewClick(groupId,childId,segRightText,TextValue.getText().toString());
+						HashMap<String, Object> map = new HashMap<String, Object>();
+						map.put("totalScore", TextValue.getText().toString());
+						listener.onSegmentSeekBarViewClick(groupId,childId,segLeftText, map);
+						listener.onSegmentSeekBarViewClick(groupId,childId,segRightText,map);
 						//listener.onSegmentSeekBarViewClick(TextValue, 0);
 					}
 				}
@@ -226,7 +244,10 @@ public class SegmentSeekBarView extends LinearLayout{
 					// TODO 自动生成的方法存根
 					setRealValue();
 					if (listener != null) {
-						listener.onSegmentSeekBarViewClick(groupId,childId,sb,  TextValue.getText().toString());
+						HashMap<String, Object> map = new HashMap<String, Object>();
+						map.put("totalScore", TextValue.getText().toString());
+						listener.onSegmentSeekBarViewClick(groupId,childId,segLeftText, map);
+						listener.onSegmentSeekBarViewClick(groupId,childId,sb,  map);
 					}
 				}
 
@@ -300,7 +321,12 @@ public class SegmentSeekBarView extends LinearLayout{
 							}
 						}
 						if (listener != null) {
-							listener.onSegmentSeekBarViewClick(groupId, childId, segLeftText, TextValue.getText().toString());
+							HashMap<String, Object> map = new HashMap<String, Object>();
+							map.put("totalScore", TextValue.getText().toString());
+							map.put("rating", String.valueOf(rating));
+							map.put("detailContent", TextContent.getText().toString());
+							System.out.println("totalScore is "+TextValue.getText().toString()+",rating is "+String.valueOf(index)+",detailContent is "+TextContent.getText().toString());
+							listener.onSegmentSeekBarViewClick(groupId, childId, segLeftText, map);
 
 						}
 					}
@@ -389,7 +415,11 @@ public class SegmentSeekBarView extends LinearLayout{
 							}
 						}
 						if (listener != null) {
-							listener.onSegmentSeekBarViewClick(groupId, childId, segLeftText, TextValue.getText().toString());
+							HashMap<String, Object> map = new HashMap<String, Object>();
+							map.put("totalScore", TextValue.getText().toString());
+							map.put("yesorno", String.valueOf(index));
+							map.put("detailContent", TextContent.getText().toString());
+							listener.onSegmentSeekBarViewClick(groupId, childId, segLeftText, map);
 
 						}
 
@@ -454,7 +484,7 @@ public class SegmentSeekBarView extends LinearLayout{
 		       * @param position 0-左边 1-右边 
 		        * @author RANDY.ZHANG 
 		         */
-		       public void onSegmentSeekBarViewClick(int groupPosition, int childPosition,View v,String TextValueStr);  
+		       public void onSegmentSeekBarViewClick(int groupPosition, int childPosition,View v,HashMap<String, Object> map);
 	}  
 
 }
