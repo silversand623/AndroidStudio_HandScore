@@ -159,12 +159,13 @@ public class MainActivity extends Activity implements OnItemClickListener {
 
             } else {
                 int nIndex = myApp.gSegSelectedIndex;
-                //[[self filterSegment] setSelectedSegmentIndex:nIndex];
+
                 filterStudentArray = myApp.gStudnetArray;
                 studentArray = getStudentArray(nIndex);
                 adapter.setList(studentArray);
                 adapter.notifyDataSetChanged();
                 updateSegment();
+                seg.setSelectedSegmentIndex(nIndex);
             }
 
             SharedPreferences userInfo = getSharedPreferences("user_info", 0);

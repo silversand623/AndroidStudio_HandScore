@@ -157,7 +157,25 @@ public class SegmentView extends LinearLayout  {
 		  if (position == 2) {  
 			  segRightText.setText(text);  
 		   } 
-		}  
+		}
+
+	public void setSelectedSegmentIndex(int position) {
+		if (position == 0) {
+			segLeftText.setSelected(true);
+			segCenterText.setSelected(false);
+			segRightText.setSelected(false);
+		}
+		if (position == 1) {
+			segLeftText.setSelected(false);
+			segCenterText.setSelected(true);
+			segRightText.setSelected(false);
+		}
+		if (position == 2) {
+			segLeftText.setSelected(false);
+			segCenterText.setSelected(false);
+			segRightText.setSelected(true);
+		}
+	}
 
 	public static interface onSegmentViewClickListener{  
 		       /** 
