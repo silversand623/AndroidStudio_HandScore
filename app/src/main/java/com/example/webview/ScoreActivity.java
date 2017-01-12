@@ -87,7 +87,7 @@ public class ScoreActivity extends Activity {
             chronometer.setOnChronometerTickListener(new Chronometer.OnChronometerTickListener() {
                 @Override
                 public void onChronometerTick(Chronometer chronometer) {
-                    if (SystemClock.elapsedRealtime() - chronometer.getBase() > fStartTime) {
+                    if (SystemClock.elapsedRealtime() - chronometer.getBase() > fStartTime && fStartTime > 0.0f) {
                         chronometer.stop();
                         fStartTime = 1000*1000*60;
                         // 给用户提示
