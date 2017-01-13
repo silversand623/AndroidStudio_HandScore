@@ -80,6 +80,7 @@ public class MainActivity extends Activity implements OnItemClickListener {
     private TimerTask mTimerTask;
     private SwipeLayout wipe;
     private boolean bRefresh;
+    private TextView TVshezhi;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -90,6 +91,18 @@ public class MainActivity extends Activity implements OnItemClickListener {
         LoginInfoType info = myApp.gLoginItem;
 
         //bRefresh = true;
+
+        //设置界面
+        TVshezhi = (TextView) findViewById(R.id.tvSetting);
+        TVshezhi.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                // TODO 自动生成的方法存根
+                Intent intent = new Intent(MainActivity.this, SettingActivity.class);
+                MainActivity.this.startActivity(intent);
+            }
+        });
 
         mTimer = new Timer();
         mTimerTask = new TimerTask() {

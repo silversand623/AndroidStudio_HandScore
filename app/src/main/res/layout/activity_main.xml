@@ -14,10 +14,19 @@
 
         <TextView
             android:id="@+id/ExamName"
-            android:layout_width="1170dp"
+            android:layout_width="1070dp"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="考试名称"
+            android:textColor="#ffffff"
+            android:textSize="25dip" />
+
+        <TextView
+            android:id="@+id/tvSetting"
+            android:layout_width="100dp"
+            android:layout_height="80dp"
+            android:gravity="center"
+            android:text="设置"
             android:textColor="#ffffff"
             android:textSize="25dip" />
 
