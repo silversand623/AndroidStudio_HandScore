@@ -78,7 +78,7 @@
 
     <LinearLayout
         android:layout_width="fill_parent"
-        android:layout_height="40dip"
+        android:layout_height="50dip"
         android:gravity="left"
         android:orientation="horizontal"
         android:paddingRight="5dip">
@@ -93,7 +93,7 @@
 
         <TextView
             android:id="@+id/KaoZhan"
-            android:layout_width="460dp"
+            android:layout_width="600dp"
             android:layout_height="wrap_content"
             android:gravity="left"
             android:text="dfeefre"
@@ -110,7 +110,7 @@
 
         <TextView
             android:id="@+id/FangJian"
-            android:layout_width="360dp"
+            android:layout_width="220dp"
             android:layout_height="wrap_content"
             android:gravity="left"
             android:text="401"
@@ -137,7 +137,7 @@
 
     <LinearLayout
         android:layout_width="fill_parent"
-        android:layout_height="40dip"
+        android:layout_height="50dip"
         android:gravity="left"
         android:orientation="horizontal"
         android:paddingRight="5dip">
