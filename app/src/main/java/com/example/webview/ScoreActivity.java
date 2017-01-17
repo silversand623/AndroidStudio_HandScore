@@ -65,6 +65,7 @@ public class ScoreActivity extends Activity {
     private String modelValueStr;
     MarkSheet Infos;
     private boolean bScore;
+    private boolean bZero;
     private Chronometer chronometer;
     private float fStartTime;
 
@@ -75,6 +76,7 @@ public class ScoreActivity extends Activity {
         setContentView(R.layout.activity_score);
         try {
             bScore = false;
+            bZero = false;
             tvTotal = (TextView) findViewById(R.id.TotalScore);
             tvActual = (TextView) findViewById(R.id.ActualScore);
 
@@ -233,20 +235,42 @@ public class ScoreActivity extends Activity {
                         }
                     }
 
-                    if (bValue) {
-                        expandableListView.setSelectedChild(nSection, nIndex, true);
-                        String strMsg = String.format("还有%d项未打分，请完成打分再预览", nScoreCount);
+                    if (bScore == false) //选为no得分即为0
+                    {
+                        if (!bZero)
+                        {
+                            if (bValue) {
+                                expandableListView.setSelectedChild(nSection, nIndex, true);
+                                String strMsg = String.format("还有%d项未打分，请完成打分再预览", nScoreCount);
 
-                        AlertDialog.Builder builder = new AlertDialog.Builder(ScoreActivity.this);
-                        builder.setTitle("提示").setMessage(strMsg)
-                                .setPositiveButton("确定",
-                                        new DialogInterface.OnClickListener() {
-                                            public void onClick(DialogInterface dialoginterface, int i) {
-                                                //按钮事件
-                                            }
-                                        })
-                                .show();
-                        return;
+                                AlertDialog.Builder builder = new AlertDialog.Builder(ScoreActivity.this);
+                                builder.setTitle("提示").setMessage(strMsg)
+                                        .setPositiveButton("确定",
+                                                new DialogInterface.OnClickListener() {
+                                                    public void onClick(DialogInterface dialoginterface, int i) {
+                                                        //按钮事件
+                                                    }
+                                                })
+                                        .show();
+                                return;
+                            }
+                        }
+                    }else {
+                        if (bValue) {
+                            expandableListView.setSelectedChild(nSection, nIndex, true);
+                            String strMsg = String.format("还有%d项未打分，请完成打分再预览", nScoreCount);
+
+                            AlertDialog.Builder builder = new AlertDialog.Builder(ScoreActivity.this);
+                            builder.setTitle("提示").setMessage(strMsg)
+                                    .setPositiveButton("确定",
+                                            new DialogInterface.OnClickListener() {
+                                                public void onClick(DialogInterface dialoginterface, int i) {
+                                                    //按钮事件
+                                                }
+                                            })
+                                    .show();
+                            return;
+                        }
                     }
 
                     GlobalSetting myApp = (GlobalSetting) getApplication();
@@ -326,7 +350,7 @@ public class ScoreActivity extends Activity {
     private float getSum(int nCase) {
         float nSum = 0.0f;
         float nTotalSum = 0.0f;
-        boolean bZero = false;
+        bZero = false;
         if(Infos!=null)
         {
             if(Infos.mark_sheet_list.size()>0)

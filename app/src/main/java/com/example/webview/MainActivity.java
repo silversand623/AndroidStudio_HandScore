@@ -109,6 +109,7 @@ public class MainActivity extends Activity implements OnItemClickListener {
             @Override
             public void run() {
                 checkNextStudent();
+                getStudentInfo();
             }
         };
         //开始一个定时任务
@@ -315,6 +316,11 @@ public class MainActivity extends Activity implements OnItemClickListener {
                                     long lInterval2 = dateEnd.getTime() - dateSystem.getTime();
                                     if (lInterval1 >= 0.0 && lInterval2 >= 0.0) {
                                         bTag = true;
+                                        SharedPreferences userInfo = getSharedPreferences("user_info", 0);
+                                        userInfo.edit()
+                                                .putString("U_ID", "")
+                                                .commit();
+
                                     } else if (lInterval1 < 0.0) {
                                         if (!bTag)
                                         {
