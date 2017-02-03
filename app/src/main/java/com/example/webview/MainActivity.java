@@ -109,7 +109,7 @@ public class MainActivity extends Activity implements OnItemClickListener {
             @Override
             public void run() {
                 checkNextStudent();
-                getStudentInfo();
+                //getStudentInfo();
             }
         };
         //开始一个定时任务
