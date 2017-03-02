@@ -109,6 +109,7 @@ public class MainActivity extends Activity implements OnItemClickListener {
             @Override
             public void run() {
                 checkNextStudent();
+                checkStudentTime();
                 //getStudentInfo();
             }
         };
@@ -413,6 +414,95 @@ public class MainActivity extends Activity implements OnItemClickListener {
             }
         }
         return filter;
+    }
+
+    private void checkStudentTime() {
+        String sKaohao="";
+        SharedPreferences userInfo = getSharedPreferences("user_info", 0);
+        if (!userInfo.contains("ipconfig")) {
+            return;
+        }
+        if (filterStudentArray == null)
+        {
+            return;
+        }
+        if (filterStudentArray.size() >0)
+        {
+            int count = filterStudentArray.size();
+            HashMap<String, Object> map = filterStudentArray.get(count-1);
+            sKaohao = (String) map.get("itemKaohao");
+        }
+
+        String BaseUrl = userInfo.getString("ipconfig", null);
+        String url = "http://";
+        url = url + BaseUrl + "/AppDataInterface/HandScore.aspx/SearchStudentInfo";
+        Ion.with(this)
+                .load(url)
+                .setBodyParameter("E_ID", loginItem.E_ID)
+                .setBodyParameter("ES_ID", loginItem.ES_ID)
+                .setBodyParameter("Room_ID", loginItem.Room_ID)
+                .setBodyParameter("U_ID", loginItem.U_ID)
+                .setBodyParameter("search_type", "1")
+                .setBodyParameter("search_keyword", sKaohao)
+                .setBodyParameter("page_index", "1")
+                .setBodyParameter("page_size", "1")
+                .asJsonObject()
+                .setCallback(new FutureCallback<JsonObject>() {
+                    @Override
+                    public void onCompleted(Exception e, JsonObject result) {
+                        mProgressHUD.dismiss();
+                        if (e != null) {
+                            return;
+                        }
+                        //////
+                        try {
+                            Gson gson = new Gson();
+                            java.lang.reflect.Type type = new TypeToken<StudentInfo>() {
+                            }.getType();
+                            StudentInfo studentInfos = gson.fromJson(result, type);
+                            GlobalSetting myApp = (GlobalSetting) getApplication();
+                            myApp.gStudents = studentInfos;
+                            String sStartTime="";
+                            String uid="";
+
+                            for (Student obj : studentInfos.student_list) {
+                                sStartTime = obj.Exam_StartTime;
+                                uid = obj.U_ID;
+                            }
+
+                            boolean bTag = false;
+
+                            for (int i = 0; i < filterStudentArray.size(); i++) {
+                                HashMap<String, Object> map = filterStudentArray.get(i);
+                                String suid = (String) map.get("U_ID");
+                                String stime = (String) map.get("itemTime");
+                                if (uid.equals(suid))
+                                {
+                                    if (!sStartTime.equals(stime))
+                                    {
+                                        bTag = true;
+
+                                    }
+                                    break;
+                                }
+
+                            }
+
+                            if (bTag)
+                            {
+                                studentArray.clear();
+                                filterStudentArray.clear();
+                                getStudentInfo();
+                            }
+
+
+                        } catch (Exception eJson) {
+                            ////
+                        }
+                        /////
+
+                    }
+                });
     }
 
     private void getStudentInfo() {
