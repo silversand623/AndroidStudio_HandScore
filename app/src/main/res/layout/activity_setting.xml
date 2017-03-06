@@ -81,7 +81,6 @@
         android:layout_width="800dp"
         android:layout_height="80dip"
         android:gravity="left"
-        android:visibility="gone"
         android:orientation="horizontal">
 
         <TextView
@@ -96,7 +95,7 @@
             android:id="@+id/eTextInterval"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="50dp"
+            android:layout_marginLeft="210dp"
             android:height="40dip"
             android:background="@drawable/buttonstyle"
             android:digits="0123456789."
@@ -111,7 +110,6 @@
         android:layout_width="fill_parent"
         android:layout_height="80dip"
         android:gravity="left"
-        android:visibility="gone"
         android:orientation="horizontal">
 
         <TextView
@@ -126,7 +124,7 @@
             android:id="@+id/SegmentSetBar"
             android:layout_width="150dip"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="200dp"></com.example.webview.SegmentSet>
+            android:layout_marginLeft="360dp"></com.example.webview.SegmentSet>
     </LinearLayout>
 
 </LinearLayout>

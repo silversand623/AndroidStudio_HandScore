@@ -94,6 +94,29 @@ public class SettingActivity extends Activity {
             public void onClick(View v) {
                 // TODO 自动生成的方法存根
                 try {
+                    String AllNumber=eTextInterval.getText().toString();
+                    if(AllNumber.length()>0)
+                    {
+                        if(Float.parseFloat(AllNumber)==0)
+                        {
+                            DialogAlert("评分间隔不能为0。");
+                            eTextInterval.setText("1");
+                            return;
+                        }
+                        else
+                        {
+                            eTextInterval.setText(String.valueOf(Float.parseFloat(AllNumber)));
+                        }
+
+                    }
+                    else
+                    {
+                        //如果为空则默认1
+                        DialogAlert("评分间隔不能为空。");
+                        eTextInterval.setText("1");
+                        return;
+                    }
+
                     if (timeInterval.getText().toString().equals(""))
                     {
                         AlertDialog.Builder builder = new AlertDialog.Builder(SettingActivity.this);
@@ -138,12 +161,76 @@ public class SettingActivity extends Activity {
                         return;
                     }
 
-                    SharedPreferences userInfo = getSharedPreferences("user_info", 0);
-                    userInfo.edit()
-                            .putString("timeinterval", timeInterval.getText().toString())
-                            .commit();
+                    //判断如果没有修改就不提示，是否确认修改
+                    String flag="false";
+                    SharedPreferences userInfo = getSharedPreferences("user_info",0);
+                    //填充数据，如果有已保存的数据
+                    if (userInfo.contains("progressStep")) {
+                        String aa=userInfo.getString("progressStep",null);
+                        String bb=eTextInterval.getText().toString();
+                        if(!aa.equals(bb))
+                        {
+                            flag="true";
+                        }
+                    }else
+                    {
+                        flag="true";
+                    }
+                    if (userInfo.contains("modelValue")) {
+                        String tempValue=userInfo.getString("modelValue",null);
+                        if(!tempValue.equals(String.valueOf(modelValueStr)))
+                        {
+                            flag="true";
+                        }
+                    }
+                    else
+                    {
+                        flag="true";
+                    }
 
-                    SettingActivity.this.finish();
+                    if (userInfo.contains("timeinterval")) {
+                        String tempValue=userInfo.getString("timeinterval",null);
+                        String sTime = timeInterval.getText().toString();
+                        if(!tempValue.equals(sTime))
+                        {
+                            flag="true";
+                        }
+                    }
+                    else
+                    {
+                        flag="true";
+                    }
+
+                    //提示是否保存设置,判断如果有修改的数据则保存，否则直接跳到登录界面
+                    if(flag.equals("true"))
+                    {
+                        AlertDialog.Builder builder = new AlertDialog.Builder(SettingActivity.this);
+                        builder.setMessage("是否确认修改参数？");
+                        builder.setTitle("提示");
+                        builder.setPositiveButton("确认", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which)
+                            {
+                                SharedPreferences userInfo = getSharedPreferences("user_info",0);
+                                userInfo.edit()
+                                        .putString("progressStep",eTextInterval.getText().toString())
+                                        .putString("modelValue",String.valueOf(modelValueStr))
+                                        .putString("timeinterval", timeInterval.getText().toString())
+                                        .commit();
+
+                                SettingActivity.this.finish();
+                            }
+                        });
+                        builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.dismiss();
+                            }
+                        });
+                        builder.create().show();
+                    }else
+                    {
+                        SettingActivity.this.finish();
+                    }
+
                 }catch (ParseException e1)
                 {
 
@@ -152,6 +239,7 @@ public class SettingActivity extends Activity {
         });
 
     }
+
 
     private TextWatcher textWatcher = new TextWatcher() {
 

@@ -116,20 +116,18 @@ public class ScoreActivity extends Activity {
             PingFenBiaoName = (TextView) findViewById(R.id.PingFenBiaoName);
             SharedPreferences userInfo = getSharedPreferences("user_info", 0);
 
-            progressStep = "1";
-            modelValueStr = "0";
 
-//            //填充数据，如果有已保存的数据
-//            if (userInfo.contains("progressStep")) {
-//                progressStep = userInfo.getString("progressStep", null);
-//            } else {
-//                progressStep = "1";
-//            }
-//            if (userInfo.contains("modelValue")) {
-//                modelValueStr = userInfo.getString("modelValue", null);
-//            } else {
-//                modelValueStr = "0";
-//            }
+            //填充数据，如果有已保存的数据
+            if (userInfo.contains("progressStep")) {
+                progressStep = userInfo.getString("progressStep", null);
+            } else {
+                progressStep = "1";
+            }
+            if (userInfo.contains("modelValue")) {
+                modelValueStr = userInfo.getString("modelValue", null);
+            } else {
+                modelValueStr = "0";
+            }
 
             GlobalSetting myApp = (GlobalSetting) getApplication();
 
@@ -348,8 +346,8 @@ public class ScoreActivity extends Activity {
 
     //0 return Total score,else return actural score
     private float getSum(int nCase) {
-        float nSum = 0.0f;
-        float nTotalSum = 0.0f;
+        float nSum = 0.00f;
+        float nTotalSum = 0.00f;
         bZero = false;
         if(Infos!=null)
         {
@@ -546,6 +544,35 @@ public class ScoreActivity extends Activity {
                             itemHolder.segSeekBar.setChildId(childPosition);
                             itemHolder.segSeekBar.setScore(bScore);
 
+                            itemHolder.segSeekBar.setOnSegmentViewClickListener(new onSegmentSeekBarViewClickListener() {
+                                @Override
+                                public void onSegmentSeekBarViewClick(int groupId, int childId, View v, HashMap<String, Object> map) {
+                                    children_item ciInfo = Infos.mark_sheet_list.get(0).item_list.get(groupId).children_item_list.get(childId);
+                                    String TextValueStr = (String) map.get("totalScore");
+                                    if(map.containsKey("rating"))
+                                    {
+                                        ciInfo.rating = (String) map.get("rating");
+                                    }
+                                    if(map.containsKey("detailContent"))
+                                    {
+                                        ciInfo.detail = (String) map.get("detailContent");
+                                    }
+                                    if(map.containsKey("yesorno"))
+                                    {
+                                        ciInfo.yesorno = (String) map.get("yesorno");
+                                    }
+
+                                    if (TextValueStr.equals("")) {
+                                        ciInfo.Item_Score = "-1";
+                                    } else {
+                                        String score = String.valueOf(TextValueStr);
+                                        ciInfo.Item_Score = score;
+                                    }
+                                    tvActual.setText(String.valueOf(getSum(1)));
+                                    //System.out.println("MSI_ID:"+String.valueOf(ciInfo.MSI_ID)+"MSI_Score:"+String.valueOf(ciInfo.MSI_Score)+"MSI_RealScore:"+String.valueOf(ciInfo.MSI_RealScore)+"TextValueStr:"+TextValueStr+"groupPosition:"+String.valueOf(groupId)+"childPosition:"+String.valueOf(childId));
+                                }
+                            });
+
                             if (ci.Score_Type.equals("0")) {
                                 //设置步长，用于计算实际的分数，实际数据*progressStep为实际分数，如果大于最大值则为最大值
                                 itemHolder.segSeekBar.setFlag(0);
@@ -594,7 +621,12 @@ public class ScoreActivity extends Activity {
                                     tv.setText(ci.Item_Score);
                                 }
                                 SimpleRatingBar rateBar = itemHolder.segSeekBar.getRateBar();
-                                if (!ci.rating.equals("-1")) {
+                                if (ci.rating.equals("-1")) {
+                                    if (modelValueStr.equals("1")) {
+                                        rateBar.setRating(ci.item_detail_list.size());
+                                    }
+                                }else
+                                {
                                     rateBar.setRating(Float.valueOf(ci.rating));
                                 }
 
@@ -616,7 +648,9 @@ public class ScoreActivity extends Activity {
 
                                 ToggleButton YesOrNo = itemHolder.segSeekBar.getYesOrNo();
                                 if (ci.yesorno.equals("-1")) {
-
+                                    if (modelValueStr.equals("1")) {
+                                        YesOrNo.setChecked(true);
+                                    }
                                 }else if (ci.yesorno.equals("0"))
                                 {
                                     YesOrNo.setChecked(false);
@@ -631,35 +665,7 @@ public class ScoreActivity extends Activity {
                             }
 
 
-                            //System.out.println("MSI_ID:" + String.valueOf(ci.MSI_ID) + "MSI_Score:" + String.valueOf(ci.MSI_Score) + "MSI_RealScore:" + String.valueOf(ci.Item_Score) + "tv:" + tv.getText().toString() + "progress:" + String.valueOf(sb.getProgress()) + "maxValue:" + String.valueOf(maxValue) + "groupPosition:" + String.valueOf(groupPosition) + "childPosition:" + String.valueOf(childPosition));
-                            itemHolder.segSeekBar.setOnSegmentViewClickListener(new onSegmentSeekBarViewClickListener() {
-                                @Override
-                                public void onSegmentSeekBarViewClick(int groupId, int childId, View v, HashMap<String, Object> map) {
-                                    children_item ciInfo = Infos.mark_sheet_list.get(0).item_list.get(groupId).children_item_list.get(childId);
-                                    String TextValueStr = (String) map.get("totalScore");
-                                    if(map.containsKey("rating"))
-                                    {
-                                        ciInfo.rating = (String) map.get("rating");
-                                    }
-                                    if(map.containsKey("detailContent"))
-                                    {
-                                        ciInfo.detail = (String) map.get("detailContent");
-                                    }
-                                    if(map.containsKey("yesorno"))
-                                    {
-                                        ciInfo.yesorno = (String) map.get("yesorno");
-                                    }
 
-                                    if (TextValueStr.equals("")) {
-                                        ciInfo.Item_Score = "-1";
-                                    } else {
-                                        String score = String.valueOf(TextValueStr);
-                                        ciInfo.Item_Score = score;
-                                    }
-                                    tvActual.setText(String.valueOf(getSum(1)));
-                                    //System.out.println("MSI_ID:"+String.valueOf(ciInfo.MSI_ID)+"MSI_Score:"+String.valueOf(ciInfo.MSI_Score)+"MSI_RealScore:"+String.valueOf(ciInfo.MSI_RealScore)+"TextValueStr:"+TextValueStr+"groupPosition:"+String.valueOf(groupId)+"childPosition:"+String.valueOf(childId));
-                                }
-                            });
                         }
                     }
                 }
