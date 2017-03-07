@@ -602,6 +602,7 @@ public class ScoreActivity extends Activity {
                                         String score = String.valueOf(ci.MSI_Score);
                                         ci.Item_Score = score;
                                         tv.setText(score);
+                                        tvActual.setText(String.valueOf(getSum(0)));
                                     }
 
                                 } else {
@@ -624,6 +625,7 @@ public class ScoreActivity extends Activity {
                                 if (ci.rating.equals("-1")) {
                                     if (modelValueStr.equals("1")) {
                                         rateBar.setRating(ci.item_detail_list.size());
+                                        tvActual.setText(String.valueOf(getSum(0)));
                                     }
                                 }else
                                 {
@@ -650,6 +652,7 @@ public class ScoreActivity extends Activity {
                                 if (ci.yesorno.equals("-1")) {
                                     if (modelValueStr.equals("1")) {
                                         YesOrNo.setChecked(true);
+                                        tvActual.setText(String.valueOf(getSum(0)));
                                     }
                                 }else if (ci.yesorno.equals("0"))
                                 {
