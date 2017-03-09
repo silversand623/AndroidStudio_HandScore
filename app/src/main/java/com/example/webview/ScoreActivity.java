@@ -365,7 +365,7 @@ public class ScoreActivity extends Activity {
                             if (modelValueStr.equals("1")) {
                                 String score = String.valueOf(ci.MSI_Score);
                                 ci.Item_Score = score;
-                                
+
                             }
                         }else {
                             if (ci.Score_Type.equals("2"))
