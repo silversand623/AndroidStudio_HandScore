@@ -422,7 +422,7 @@ public class MainActivity extends Activity implements OnItemClickListener {
         if (!userInfo.contains("ipconfig")) {
             return;
         }
-        if (filterStudentArray == null)
+        if (filterStudentArray == null || loginItem == null)
         {
             return;
         }

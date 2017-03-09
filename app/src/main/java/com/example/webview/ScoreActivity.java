@@ -362,7 +362,11 @@ public class ScoreActivity extends Activity {
                         nSum +=Float.parseFloat(ci.MSI_Score);
                         if (ci.Item_Score.equals("-1"))
                         {
-
+                            if (modelValueStr.equals("1")) {
+                                String score = String.valueOf(ci.MSI_Score);
+                                ci.Item_Score = score;
+                                
+                            }
                         }else {
                             if (ci.Score_Type.equals("2"))
                             {
@@ -602,7 +606,7 @@ public class ScoreActivity extends Activity {
                                         String score = String.valueOf(ci.MSI_Score);
                                         ci.Item_Score = score;
                                         tv.setText(score);
-                                        tvActual.setText(String.valueOf(getSum(0)));
+                                        tvActual.setText(String.valueOf(getSum(1)));
                                     }
 
                                 } else {
@@ -617,19 +621,20 @@ public class ScoreActivity extends Activity {
                                 itemHolder.segSeekBar.init();
 
                                 TextView tv = itemHolder.segSeekBar.getTextValue();
-                                if (!ci.Item_Score.equals("-1"))
-                                {
-                                    tv.setText(ci.Item_Score);
-                                }
+
+
                                 SimpleRatingBar rateBar = itemHolder.segSeekBar.getRateBar();
                                 if (ci.rating.equals("-1")) {
                                     if (modelValueStr.equals("1")) {
                                         rateBar.setRating(ci.item_detail_list.size());
-                                        tvActual.setText(String.valueOf(getSum(0)));
+                                        String score = String.valueOf(ci.MSI_Score);
+                                        ci.Item_Score = score;
+                                        tvActual.setText(String.valueOf(getSum(1)));
                                     }
                                 }else
                                 {
                                     rateBar.setRating(Float.valueOf(ci.rating));
+                                    tv.setText(ci.Item_Score);
                                 }
 
                                 TextView tvDetail = itemHolder.segSeekBar.getDetailValue();
@@ -651,8 +656,10 @@ public class ScoreActivity extends Activity {
                                 ToggleButton YesOrNo = itemHolder.segSeekBar.getYesOrNo();
                                 if (ci.yesorno.equals("-1")) {
                                     if (modelValueStr.equals("1")) {
+                                        String score = String.valueOf(ci.MSI_Score);
+                                        ci.Item_Score = score;
                                         YesOrNo.setChecked(true);
-                                        tvActual.setText(String.valueOf(getSum(0)));
+                                        tvActual.setText(String.valueOf(getSum(1)));
                                     }
                                 }else if (ci.yesorno.equals("0"))
                                 {
