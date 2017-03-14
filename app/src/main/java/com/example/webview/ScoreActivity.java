@@ -180,7 +180,23 @@ public class ScoreActivity extends Activity {
                 @Override
                 public void onClick(View v) {
                     // TODO 自动生成的方法存根
-                    ScoreActivity.this.finish();
+
+                    AlertDialog.Builder builder = new AlertDialog.Builder(ScoreActivity.this);
+                    builder.setMessage("请确认是否返回主界面，如果确定则当前评分记录会丢失。");
+                    builder.setTitle("确认返回主界面");
+                    builder.setPositiveButton("确认", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            ScoreActivity.this.finish();
+                        }
+                    });
+                    builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    });
+                    builder.create().show();
+
+
                 }
             });
             //设置界面
@@ -606,8 +622,9 @@ public class ScoreActivity extends Activity {
                                         String score = String.valueOf(ci.MSI_Score);
                                         ci.Item_Score = score;
                                         tv.setText(score);
-                                        tvActual.setText(String.valueOf(getSum(1)));
+
                                     }
+                                    tvActual.setText(String.valueOf(getSum(1)));
 
                                 } else {
                                     int progress = (int) (Float.parseFloat(ci.Item_Score) % Float.parseFloat(progressStep) == 0 ? Float.parseFloat(ci.Item_Score) / Float.parseFloat(progressStep) : Float.parseFloat(ci.Item_Score) / Float.parseFloat(progressStep) + 1);
@@ -629,8 +646,9 @@ public class ScoreActivity extends Activity {
                                         rateBar.setRating(ci.item_detail_list.size());
                                         String score = String.valueOf(ci.MSI_Score);
                                         ci.Item_Score = score;
-                                        tvActual.setText(String.valueOf(getSum(1)));
+
                                     }
+                                    tvActual.setText(String.valueOf(getSum(1)));
                                 }else
                                 {
                                     rateBar.setRating(Float.valueOf(ci.rating));
@@ -659,8 +677,9 @@ public class ScoreActivity extends Activity {
                                         String score = String.valueOf(ci.MSI_Score);
                                         ci.Item_Score = score;
                                         YesOrNo.setChecked(true);
-                                        tvActual.setText(String.valueOf(getSum(1)));
+
                                     }
+                                    tvActual.setText(String.valueOf(getSum(1)));
                                 }else if (ci.yesorno.equals("0"))
                                 {
                                     YesOrNo.setChecked(false);

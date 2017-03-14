@@ -490,6 +490,10 @@ public class ScoreViewActivity extends Activity {
                         if (groupPosition < Infos.mark_sheet_list.get(0).item_list.size()) {
                             children_item ci = Infos.mark_sheet_list.get(0).item_list.get(groupPosition).children_item_list.get(childPosition);
                             itemHolder.itemNeiRong.setText(URLDecoder.decode(ci.MSI_Item, "UTF-8"));
+                            if (ci.Item_Score.equals("-1"))
+                            {
+                                ci.Item_Score = "0";
+                            }
                             itemHolder.itemFenZhi.setText(ci.Item_Score);
 
                         }
