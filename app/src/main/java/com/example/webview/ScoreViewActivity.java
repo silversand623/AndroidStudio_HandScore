@@ -181,6 +181,19 @@ public class ScoreViewActivity extends Activity {
                 }
             }
         });
+
+        if (Infos != null) {
+            if (Infos.mark_sheet_list.size() > 0) {
+                for (int i = 0; i < Infos.mark_sheet_list.get(0).item_list.size(); i++) {
+                    for (int j = 0; j < Infos.mark_sheet_list.get(0).item_list.get(i).children_item_list.size(); j++) {
+                        children_item ci = Infos.mark_sheet_list.get(0).item_list.get(i).children_item_list.get(j);
+                        if (ci.Item_Score == "-1") {
+                                ci.Item_Score = "0.0";
+                            }
+                        }
+                    }
+               }
+            }
     }
 
     //0 return Total score,else return actural score
