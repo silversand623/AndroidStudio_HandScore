@@ -647,9 +647,6 @@ public class ScoreActivity extends Activity {
                                         String score = String.valueOf(ci.MSI_Score);
                                         ci.Item_Score = score;
 
-                                    }else
-                                    {
-                                        ci.Item_Score = "0.0";
                                     }
                                     tvActual.setText(String.valueOf(getSum(1)));
                                 }else
